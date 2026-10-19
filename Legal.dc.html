@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>FarmPlus – Chính sách &amp; điều khoản</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./site.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="fp" style="font-family: 'Be Vietnam Pro', 'Segoe UI', system-ui, sans-serif; color: #2F3A32; background: #FFFFFF">
+<dc-import name="Header" current="none" m="{{m}}" drawer-open="{{drawerOpen}}" hint-size="100%,1px"></dc-import>
+<main>
+<section style="background: #F4F8F2; padding-bottom: 32px">
+  <div class="wrap">
+    <nav class="crumbs crumbs--dark" aria-label="Breadcrumb"><a href="{{L.home}}">Trang chủ</a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg><span>{{d.title}}</span></nav>
+    <div class="article-head" style="padding-top: 16px">
+      <span class="tag">Thông tin pháp lý</span>
+      <h1>{{d.title}}</h1>
+      <p class="lead">{{d.intro}}</p>
+      <p style="font-size: 14px; color: #5A665D">Cập nhật lần cuối: 16/10/2026</p>
+    </div>
+    <div class="legal-tabs">
+      <a href="{{L.privacy}}" class="{{tabPrivacy}}">Chính sách bảo mật</a>
+      <a href="{{L.terms}}" class="{{tabTerms}}">Điều khoản sử dụng</a>
+    </div>
+  </div>
+</section>
+<section class="sec" style="padding-top: 48px">
+  <div class="wrap" style="max-width: 880px">
+    <article class="prose">
+      <sc-for list="{{blocks}}" as="b" hint-placeholder-count="6">
+        <sc-if value="{{b.isP}}" hint-placeholder-val="{{ true }}"><p>{{b.text}}</p></sc-if>
+        <sc-if value="{{b.isH2}}" hint-placeholder-val="{{ false }}"><h2>{{b.text}}</h2></sc-if>
+        <sc-if value="{{b.isUl}}" hint-placeholder-val="{{ false }}"><ul><sc-for list="{{b.items}}" as="li" hint-placeholder-count="3"><li>{{li}}</li></sc-for></ul></sc-if>
+      </sc-for>
+      <div class="notebox"><b>Liên hệ</b><ul><li>Công ty TNHH FarmPlus – 44E Trần Đại Nghĩa, P. Phước Hậu, Vĩnh Long</li><li>Email: farmplusgroup@gmail.com</li><li>Hotline: 0989 799 429</li></ul></div>
+    </article>
+  </div>
+</section>
+</main>
+<dc-import name="Footer" m="{{m}}" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"m":{"editor":"boolean","default":false},"drawerOpen":{"editor":"boolean","default":false},"doc":{"editor":"enum","options":["privacy","terms"],"default":"privacy"},"$preview":{"width":1440,"height":3300}}'>
+const FP_LEGAL = {
+  privacy: { title: 'Chính sách bảo mật', intro: 'Công ty TNHH FarmPlus tôn trọng và bảo vệ thông tin cá nhân của khách hàng, đối tác và ứng viên khi sử dụng website farmplusgroup.com.',
+    body: `## 1. Phạm vi áp dụng
+Chính sách này áp dụng cho thông tin cá nhân mà FarmPlus thu thập thông qua website, bao gồm các biểu mẫu liên hệ, nhận báo giá, đăng ký đại lý, đăng ký nhận bản tin và ứng tuyển.
+## 2. Thông tin được thu thập
+- Họ và tên, số điện thoại, email, địa chỉ hoặc khu vực.
+- Nội dung yêu cầu, nhu cầu sản phẩm, sản lượng dự kiến.
+- Hồ sơ, CV và thông tin do ứng viên cung cấp khi ứng tuyển.
+- Thông tin kỹ thuật cơ bản khi truy cập website như loại trình duyệt, thiết bị và thời gian truy cập.
+## 3. Mục đích sử dụng
+- Liên hệ, tư vấn, gửi báo giá và xử lý yêu cầu của khách hàng, đối tác.
+- Đánh giá hồ sơ và liên hệ ứng viên trong quá trình tuyển dụng.
+- Gửi bản tin kỹ thuật, thông tin sản phẩm khi người dùng đã đăng ký nhận tin.
+- Cải thiện nội dung và trải nghiệm trên website.
+## 4. Chia sẻ thông tin
+FarmPlus không bán hoặc cho thuê thông tin cá nhân. Thông tin chỉ được chia sẻ khi cần thiết với:
+- Đơn vị cung cấp dịch vụ kỹ thuật cho website, email, lưu trữ – trong phạm vi phục vụ hoạt động của FarmPlus.
+- Cơ quan nhà nước có thẩm quyền khi có yêu cầu theo quy định của pháp luật.
+## 5. Lưu trữ và bảo vệ thông tin
+Thông tin cá nhân được lưu trữ trong thời gian cần thiết để thực hiện các mục đích nêu trên hoặc theo quy định của pháp luật. FarmPlus áp dụng các biện pháp quản lý và kỹ thuật phù hợp để bảo vệ thông tin khỏi truy cập, sử dụng hoặc tiết lộ trái phép.
+## 6. Quyền của người dùng
+Người dùng có quyền yêu cầu xem, chỉnh sửa, xoá thông tin cá nhân hoặc rút lại sự đồng ý nhận tin bất cứ lúc nào bằng cách liên hệ FarmPlus theo thông tin bên dưới. FarmPlus xử lý dữ liệu cá nhân phù hợp với quy định của pháp luật Việt Nam về bảo vệ dữ liệu cá nhân.
+## 7. Cookie
+Website có thể sử dụng cookie và công nghệ tương tự để ghi nhớ lựa chọn của người dùng và thống kê lượt truy cập. Người dùng có thể tắt cookie trong cài đặt trình duyệt; một số tính năng của website khi đó có thể không hoạt động đầy đủ.
+## 8. Thay đổi chính sách
+FarmPlus có thể cập nhật chính sách này khi cần thiết. Phiên bản mới có hiệu lực kể từ khi được đăng tải trên website.` },
+  terms: { title: 'Điều khoản sử dụng', intro: 'Khi truy cập và sử dụng website farmplusgroup.com, người dùng đồng ý với các điều khoản dưới đây.',
+    body: `## 1. Chấp thuận điều khoản
+Việc truy cập, sử dụng website đồng nghĩa với việc người dùng đã đọc, hiểu và đồng ý với Điều khoản sử dụng này cùng Chính sách bảo mật của FarmPlus.
+## 2. Nội dung và quyền sở hữu
+Toàn bộ nội dung trên website gồm văn bản, hình ảnh, minh hoạ, logo và nhãn hiệu FarmPlus thuộc quyền sở hữu của Công ty TNHH FarmPlus hoặc được sử dụng hợp pháp. Mọi hình thức sao chép, phân phối, chỉnh sửa vì mục đích thương mại khi chưa có sự đồng ý bằng văn bản của FarmPlus đều không được phép.
+## 3. Thông tin sản phẩm
+- Thông tin sản phẩm trên website mang tính giới thiệu. Thông số chính thức của từng sản phẩm thức ăn chăn nuôi được thể hiện trên bao bì và bản công bố tiêu chuẩn cơ sở.
+- Giá bán, chính sách và tình trạng hàng hoá được xác nhận qua báo giá hoặc hợp đồng chính thức của FarmPlus.
+- Hình ảnh minh hoạ có thể khác với sản phẩm thực tế về màu sắc, bao bì theo từng lô.
+## 4. Bài viết kỹ thuật
+Các bài viết kỹ thuật trên website nhằm chia sẻ kiến thức chăn nuôi phổ biến, không thay thế cho việc thăm khám và tư vấn trực tiếp của bác sĩ thú y. Việc sử dụng vaccine, thuốc thú y và các biện pháp điều trị cần tuân theo hướng dẫn của bác sĩ thú y.
+## 5. Trách nhiệm của người dùng
+- Cung cấp thông tin chính xác khi gửi biểu mẫu liên hệ, báo giá, ứng tuyển.
+- Không sử dụng website vào mục đích vi phạm pháp luật, gây ảnh hưởng đến hoạt động của website hoặc quyền lợi của người khác.
+- Không gửi nội dung giả mạo, quảng cáo trái phép hoặc mã độc qua website.
+## 6. Liên kết đến website khác
+Website có thể chứa liên kết đến trang của bên thứ ba như mạng xã hội, bản đồ. FarmPlus không chịu trách nhiệm về nội dung và chính sách của các trang này.
+## 7. Giới hạn trách nhiệm
+FarmPlus nỗ lực đảm bảo thông tin trên website chính xác và cập nhật, tuy nhiên không cam kết website hoạt động liên tục, không gián đoạn. FarmPlus không chịu trách nhiệm đối với thiệt hại phát sinh từ việc sử dụng thông tin trên website sai mục đích.
+## 8. Thay đổi điều khoản và luật áp dụng
+FarmPlus có thể điều chỉnh Điều khoản sử dụng khi cần thiết; phiên bản mới có hiệu lực kể từ khi được đăng tải. Điều khoản này được điều chỉnh theo pháp luật nước Cộng hoà xã hội chủ nghĩa Việt Nam.` }
+};
+function fpParseLegal(text) {
+  const out = [];
+  text.split('\n').map((s) => s.trim()).filter(Boolean).forEach((l) => {
+    const last = out[out.length - 1];
+    if (l.startsWith('## ')) out.push({ isH2: true, text: l.slice(3) });
+    else if (l.startsWith('- ')) { if (last && last.isUl) last.items.push(l.slice(2)); else out.push({ isUl: true, items: [l.slice(2)] }); }
+    else out.push({ isP: true, text: l });
+  });
+  return out;
+}
+class Component extends DCLogic {
+  renderVals() {
+    const m = !!this.props.m;
+    const f = (n) => ({Main:'index.html',About:'gioi-thieu.html',Products:'san-pham.html',ProductDetail:'san-pham-chi-tiet.html',Feed:'thuc-an.html',FeedDetail:'thuc-an-chi-tiet.html',News:'tin-tuc.html',NewsDetail:'tin-tuc-chi-tiet.html',Careers:'tuyen-dung.html',CareerDetail:'tuyen-dung-chi-tiet.html',Contact:'lien-he.html',Privacy:'chinh-sach-bao-mat.html',Terms:'dieu-khoan-su-dung.html'})[n];
+    const L = { home: './', privacy: f('Privacy'), terms: f('Terms') };
+    const doc = this.props.doc === 'terms' ? 'terms' : 'privacy';
+    if (!this._b) this._b = {};
+    if (!this._b[doc]) this._b[doc] = fpParseLegal(FP_LEGAL[doc].body);
+    return {
+      m, L, drawerOpen: !!this.props.drawerOpen, d: FP_LEGAL[doc], blocks: this._b[doc],
+      tabPrivacy: 'tab' + (doc === 'privacy' ? ' is-on' : ''), tabTerms: 'tab' + (doc === 'terms' ? ' is-on' : '')
+    };
+  }
+}
+</script>
+</body>
+</html>

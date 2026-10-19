@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>FarmPlus – Tin tức</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./site.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="fp" style="font-family: 'Be Vietnam Pro', 'Segoe UI', system-ui, sans-serif; color: #2F3A32; background: #FFFFFF">
+<dc-import name="Header" current="news" m="{{m}}" drawer-open="{{drawerOpen}}" hint-size="100%,1px"></dc-import>
+<main>
+<section class="pbanner pbanner--light">
+  <img class="cover" src="img/35cce192592629521722119b1d7aebd3.webp" alt="" style="object-position: 50% 45%">
+  <div class="pbanner-in"><div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="{{L.home}}">Trang chủ</a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg><span>Tin tức</span></nav>
+    <h1>Tin tức &amp;<br>kiến thức</h1>
+    <p style="max-width: 440px">Tin hoạt động FarmPlus, kỹ thuật chăn nuôi và thông tin thị trường dành cho người chăn nuôi.</p>
+  </div></div>
+</section>
+
+<section class="sec" style="padding-top: 56px">
+  <div class="wrap">
+    <div class="tabs" role="group" aria-label="Lọc chuyên mục" style="margin-top: 0">
+      <sc-for list="{{cats}}" as="t" hint-placeholder-count="4">
+        <button type="button" class="{{t.cls}}" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}">{{t.label}}</button>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{showFeature}}" hint-placeholder-val="{{ true }}">
+      <a href="{{L.article}}" class="feature fx" onClick="{{pickFeature}}">
+        <div class="nimg"><img class="cover" src="img/045348de9d1e2fd982bec7c24af9992b.webp" alt="Đại diện FarmPlus trao học bổng cho hai sinh viên trên sân khấu Trường Đại học Cần Thơ" style="object-position: 60% 30%"></div>
+        <div class="feature-body">
+          <span class="ndate">Bài nổi bật · Tin công ty <span>· 10/10/2026</span></span>
+          <h2><span class="ntitle">FarmPlus trao học bổng cho sinh viên ngành Chăn nuôi – Thú y Trường Đại học Cần Thơ</span></h2>
+          <p>Tại Chương trình chào đón tân sinh viên, học viên cao học – nghiên cứu sinh 2026 ngành Chăn nuôi – Thú y, Trường Đại học Cần Thơ, Công ty TNHH FarmPlus đã trao học bổng cho sinh viên có hoàn cảnh khó khăn, học tập tốt.</p>
+          <span class="link-arrow">Đọc bài viết<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+        </div>
+      </a>
+    </sc-if>
+
+    <div class="{{gridClass}}">
+      <sc-for list="{{posts}}" as="p" hint-placeholder-count="6">
+        <a href="{{L.article}}" class="ncard" onClick="{{p.pick}}">
+          <div class="nimg"><img class="cover" src="{{p.img}}" alt="{{p.alt}}" loading="lazy" style="{{p.pos}}"></div>
+          <span class="ndate">{{p.cat}} <span>· {{p.date}} · {{p.read}} phút đọc</span></span>
+          <h3><span class="ntitle">{{p.title}}</span></h3>
+          <p>{{p.excerpt}}</p>
+        </a>
+      </sc-for>
+    </div>
+      </div>
+</section>
+
+<section class="sec sec--mint">
+  <div class="wrap split">
+    <div class="stack fx">
+      <span class="tag">Bản tin kỹ thuật</span>
+      <h2 class="h2">Nhận kiến thức chăn nuôi mỗi tháng</h2>
+      <p class="lead">Kỹ thuật nuôi, lịch phòng bệnh theo mùa và cập nhật sản phẩm mới – gửi thẳng vào email của bạn.</p>
+    </div>
+    <form class="form-box fx" onSubmit="{{subscribe}}" style="display: flex; flex-direction: column; gap: 14px">
+      <div class="field"><label for="n-email">Email</label><input id="n-email" type="email" placeholder="ban@email.com" autocomplete="email"></div>
+      <label class="check"><input type="checkbox">Tôi đồng ý nhận email từ FarmPlus và có thể huỷ bất cứ lúc nào.</label>
+      <button type="submit" class="btn btn--solid" style="align-self: flex-start"><span>Đăng ký nhận tin</span></button>
+    </form>
+  </div>
+</section>
+</main>
+<dc-import name="Footer" m="{{m}}" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"m":{"editor":"boolean","default":false},"drawerOpen":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":3670}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const m = !!this.props.m;
+    const f = (n) => ({Main:'index.html',About:'gioi-thieu.html',Products:'san-pham.html',ProductDetail:'san-pham-chi-tiet.html',Feed:'thuc-an.html',FeedDetail:'thuc-an-chi-tiet.html',News:'tin-tuc.html',NewsDetail:'tin-tuc-chi-tiet.html',Careers:'tuyen-dung.html',CareerDetail:'tuyen-dung-chi-tiet.html',Contact:'lien-he.html',Privacy:'chinh-sach-bao-mat.html',Terms:'dieu-khoan-su-dung.html'})[n];
+    const L = { home: './', about: f('About'), products: f('Products'), product: f('ProductDetail'), feed: f('Feed'), feedItem: f('FeedDetail'), news: f('News'), article: f('NewsDetail'), careers: f('Careers'), job: f('CareerDetail'), contact: f('Contact') };
+    const all = [
+      { slug: 'um-ga-con', k: 'tech', cat: 'Kỹ thuật chăn nuôi', date: '18/09/2026', read: 5, img: 'img/f020357b9ca0bc279700ba73c9481584.webp', pos: 'object-position: 50% 60%', alt: 'Gà con tụ quanh máng ăn, máng uống dưới đèn sưởi trong chuồng úm', title: 'Kỹ thuật úm gà con 1–14 ngày tuổi: nhiệt độ, mật độ và dinh dưỡng khởi động', excerpt: 'Chuẩn bị chuồng úm, đọc hành vi đàn để điều chỉnh nhiệt, nới quây đúng lúc và dùng thức ăn S2211 hiệu quả.' },
+      { slug: 'heo-nai', k: 'tech', cat: 'Kỹ thuật chăn nuôi', date: '07/08/2026', read: 5, img: 'img/48182d2872697c4b9a6fe318abc0d029.webp', pos: 'object-position: 42% 62%', alt: 'Heo nái nằm cho đàn heo con mới sinh bú trong ô chuồng lót rơm', title: 'Chăm sóc heo nái mang thai và nuôi con: dinh dưỡng, chuồng đẻ và vệ sinh', excerpt: 'Giữ thể trạng nái cân đối, chuẩn bị chuồng đẻ, giúp nái tiết sữa tốt và giữ chuồng luôn khô sạch.' },
+      { slug: 'vit-sieu-thit', k: 'tech', cat: 'Kỹ thuật chăn nuôi', date: '23/07/2026', read: 5, img: 'img/f63ceb8f67e68c068cba3930dc28b919.webp', pos: 'object-position: 50% 68%', alt: 'Người nông dân lùa đàn vịt trên ruộng ngập nước', title: 'Nuôi vịt thịt siêu thịt 1–42 ngày: chia giai đoạn với thức ăn S3111 và S3121', excerpt: 'Úm vịt con, chuyển thức ăn giữa hai giai đoạn, quản lý mật độ và chuồng trại mùa mưa.' },
+      { slug: 'benh-mua-mua', k: 'tech', cat: 'Kỹ thuật chăn nuôi', date: '12/06/2026', read: 5, img: 'img/77d2bc8b26bb5465a1171cf3d0e533d2.webp', pos: 'object-position: 62% 60%', alt: 'Dãy chuồng trại chăn nuôi bên cánh đồng dưới bầu trời nhiều mây', title: 'Phòng bệnh cho gia súc, gia cầm mùa mưa ở miền Tây', excerpt: 'Chuồng trại khô thoáng, thức ăn và nước sạch, theo dõi dấu hiệu bệnh và chuẩn bị cho mùa nước nổi.' },
+      { slug: 'an-toan-sinh-hoc', k: 'tech', cat: 'Kỹ thuật chăn nuôi', date: '27/05/2026', read: 5, img: 'img/abbc2cd504c35db8625d02761fe22748.webp', pos: 'object-position: 62% 46%', alt: 'Người mặc áo choàng bảo hộ, khẩu trang, mũ trùm tóc và bao giày đứng trước chuồng trại và silo thức ăn', title: 'An toàn sinh học trong trang trại chăn nuôi: nguyên tắc và việc làm cụ thể', excerpt: 'Cách ly, kiểm soát ra vào, vệ sinh – sát trùng và nguyên tắc cùng vào – cùng ra.' },
+      { slug: 'bao-quan-thuc-an', k: 'tech', cat: 'Kỹ thuật chăn nuôi', date: '09/04/2026', read: 4, img: 'img/464a43e31b4476b79f172f55ef521fd4.webp', pos: 'object-position: 45% 38%', alt: 'Công nhân đi giữa lối kho xếp các bao hàng hai bên', title: 'Cách bảo quản thức ăn chăn nuôi đúng cách, tránh nấm mốc', excerpt: 'Bố trí kho, nhập trước – dùng trước, nhận biết thức ăn hư hỏng và lưu ý trong mùa mưa.' },
+      { slug: 'xu-huong-asb', k: 'market', cat: 'Thị trường', date: '21/03/2026', read: 5, img: 'img/3a372e8736af43b315620b47095f3a39.webp', pos: 'object-position: 50% 58%', alt: 'Bên trong chuồng nuôi gia cầm khép kín với hệ thống đèn, máng ăn và núm uống tự động', title: 'Xu hướng chăn nuôi an toàn sinh học: hướng đi bền vững cho người chăn nuôi', excerpt: 'Từ nuôi nhiều sang nuôi an toàn, liên kết chuỗi và truy xuất nguồn gốc – những thay đổi đang định hình ngành.' }
+    ];
+    const cat = st.cat || 'all';
+    const cats = [['all', 'Tất cả'], ['company', 'Tin công ty'], ['tech', 'Kỹ thuật chăn nuôi'], ['market', 'Thị trường']].map(([k, label]) => ({
+      label, cls: 'tab' + (k === cat ? ' is-on' : ''), pressed: k === cat ? 'true' : 'false', pick: () => this.setState({ cat: k, n: (st.n || 0) + 1 })
+    }));
+    return {
+      m, L, drawerOpen: !!this.props.drawerOpen, cats,
+      showFeature: cat === 'all' || cat === 'company',
+      posts: all.filter((p) => cat === 'all' || p.k === cat).map((p) => ({ ...p, pick: () => { try { window.localStorage.setItem('fp-article', p.slug); } catch (e) {} } })),
+      pickFeature: () => { try { window.localStorage.setItem('fp-article', 'hoc-bong-ctu'); } catch (e) {} },
+      gridClass: 'ngrid ' + ((st.n || 0) % 2 ? 'anim-b' : 'anim-a'),
+      subscribe: (e) => { if (e && e.preventDefault) e.preventDefault(); }
+    };
+  }
+}
+</script>
+</body>
+</html>

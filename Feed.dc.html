@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>FarmPlus – Thức ăn chăn nuôi</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./site.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="fp" style="font-family: 'Be Vietnam Pro', 'Segoe UI', system-ui, sans-serif; color: #2F3A32; background: #FFFFFF">
+<dc-import name="Header" current="feed" m="{{m}}" drawer-open="{{drawerOpen}}" hint-size="100%,1px"></dc-import>
+<main>
+<section class="pbanner pbanner--light">
+  <img class="contain cut" src="img/f11ac74c9cac8f2408f022299f6d3f6b.webp" alt="Xe bồn chở thức ăn chăn nuôi FarmPlus" style="object-position: right center">
+  <div class="pbanner-in"><div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="{{L.home}}">Trang chủ</a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg><span>Thức ăn chăn nuôi</span></nav>
+    <h1>Thức ăn<br>chăn nuôi</h1>
+    <p style="max-width: 460px">Thức ăn hỗn hợp dạng viên, bao 25 kg, công bố theo tiêu chuẩn cơ sở – sản xuất tại nhà máy đạt chuẩn.</p>
+  </div></div>
+</section>
+
+<section class="sec" style="padding-top: 56px">
+  <div class="wrap">
+    <div class="toolbar">
+      <div class="tabs" role="group" aria-label="Lọc theo vật nuôi">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="6">
+          <button type="button" class="{{t.cls}}" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}">{{t.label}}</button>
+        </sc-for>
+      </div>
+      <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><span class="sr">Tìm theo mã hoặc tên sản phẩm</span><input type="search" placeholder="Tìm theo mã, ví dụ S2211" onInput="{{onSearch}}"></label>
+    </div>
+    <p class="result-meta" role="status" id="feed-list" style="scroll-margin-top: 110px">{{meta}}</p>
+    <div class="{{gridClass}}">
+      <sc-for list="{{feeds}}" as="p" hint-placeholder-count="12">
+        <a href="{{L.feedItem}}" class="fcard" onClick="{{p.pick}}">
+          <div class="fcard-img fcard-img--bag" style="height: 250px">
+            <sc-if value="{{p.isNew}}" hint-placeholder-val="{{ false }}"><span class="new">Mới</span></sc-if>
+            <img class="contain bagimg" src="{{p.img}}" alt="{{p.alt}}" loading="lazy">
+          </div>
+          <div class="fcard-body">
+            <span class="code">Mã {{p.code}} · {{p.animalLabel}}</span>
+            <h3>{{p.name}}</h3>
+            <span class="stage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>{{p.stage}}</span>
+            <span class="btn btn--outline btn--sm"><span>Nhận báo giá</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+          </div>
+        </a>
+      </sc-for>
+      <sc-if value="{{noFeeds}}" hint-placeholder-val="{{ false }}"><div class="empty"><b>Chưa có sản phẩm phù hợp</b>Dòng thức ăn này đang được cập nhật. Vui lòng liên hệ 0989 799 429 để được tư vấn.</div></sc-if>
+    </div>
+    <sc-if value="{{showPager}}" hint-placeholder-val="{{ true }}">
+    <nav class="pager" aria-label="Phân trang">
+      <button type="button" aria-label="Trang trước" aria-disabled="{{prevDis}}" onClick="{{prevPage}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"></path></svg></button>
+      <sc-for list="{{pageBtns}}" as="b" hint-placeholder-count="3"><button type="button" class="{{b.cls}}" aria-current="{{b.cur}}" aria-label="Trang {{b.n}}" onClick="{{b.go}}">{{b.n}}</button></sc-for>
+      <button type="button" aria-label="Trang sau" aria-disabled="{{nextDis}}" onClick="{{nextPage}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></button>
+    </nav>
+    </sc-if>
+  </div>
+</section>
+
+<section class="sec sec--mint">
+  <div class="wrap split">
+    <div class="ill fx" style="aspect-ratio: 1524 / 1339; box-shadow: none"><img class="cover" src="img/95d6f64d515783b13a7117cbf7e60a16.webp" alt="Nhà máy sản xuất thức ăn chăn nuôi với hệ thống silo chứa nguyên liệu" loading="lazy" style="object-position: 42% 55%"><span class="fac-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>Nhà máy sản xuất – KCN Hòa Bình, Tây Ninh</span></div>
+    <div class="stack fx">
+      <span class="tag">Nhà máy sản xuất</span>
+      <h2 class="h2">Nhà máy sản xuất đạt chuẩn</h2>
+      <p class="lead">Thức ăn chăn nuôi FarmPlus được sản xuất tại nhà máy đạt chuẩn – Lô A3, Đường số 6, KCN Hòa Bình, Xã Thủ Thừa, Tây Ninh – theo công thức và tiêu chuẩn cơ sở do FarmPlus công bố.</p>
+      <ul class="facts">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>Thức ăn hỗn hợp dạng viên, đóng bao 25 kg</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>Mỗi sản phẩm có số công bố TCCS riêng in trên bao</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg>Số lô, ngày sản xuất, hạn sử dụng ghi rõ để truy xuất</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap split">
+    <div class="ill ill--wide fx"><img class="cover" src="img/f82ceba05e05414f2d8890511aa18dbd.webp" alt="Thức ăn dạng viên FarmPlus" loading="lazy"></div>
+    <div class="stack fx">
+      <span class="tag">Tư vấn dinh dưỡng</span>
+      <h2 class="h2">Chưa chắc nên chọn mã nào?</h2>
+      <p class="lead">Kỹ sư dinh dưỡng FarmPlus sẽ tư vấn khẩu phần theo loài, giai đoạn và điều kiện chuồng trại của bạn – miễn phí cho khách hàng và đại lý.</p>
+      <div class="btn-row">
+        <a href="{{L.contact}}" class="btn btn--solid"><span>Nhận tư vấn &amp; báo giá</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+        <a href="tel:0989799429" class="btn btn--outline"><span>Gọi 0989 799 429</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<dc-import name="Footer" m="{{m}}" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"m":{"editor":"boolean","default":false},"drawerOpen":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":3690}}'>
+class Component extends DCLogic {
+  goPage(n) { this.setState({ page: n, n: ((this.state || {}).n || 0) + 1 }); try { const el = this.root || document.getElementById('feed-list'); if (el && el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (e) {} }
+  renderVals() {
+    const st = this.state || {};
+    const m = !!this.props.m;
+    const f = (n) => ({Main:'index.html',About:'gioi-thieu.html',Products:'san-pham.html',ProductDetail:'san-pham-chi-tiet.html',Feed:'thuc-an.html',FeedDetail:'thuc-an-chi-tiet.html',News:'tin-tuc.html',NewsDetail:'tin-tuc-chi-tiet.html',Careers:'tuyen-dung.html',CareerDetail:'tuyen-dung-chi-tiet.html',Contact:'lien-he.html',Privacy:'chinh-sach-bao-mat.html',Terms:'dieu-khoan-su-dung.html'})[n];
+    const L = { home: './', about: f('About'), products: f('Products'), product: f('ProductDetail'), feed: f('Feed'), feedItem: f('FeedDetail'), news: f('News'), article: f('NewsDetail'), careers: f('Careers'), job: f('CareerDetail'), contact: f('Contact') };
+    const labels = { ga: 'Gà', heo: 'Heo', vit: 'Vịt, ngan', bo: 'Bò', khac: 'Dê' };
+    const all = [{"code": "S2111", "animal": "ga", "name": "Thức ăn hỗn hợp cho Gà siêu thịt từ 1‑14 ngày tuổi", "stage": "1‑14 ngày tuổi", "img": "img/96d62b15005f037c2d3c34a972629e6b.png"}, {"code": "S2121", "animal": "ga", "name": "Thức ăn hỗn hợp cho Gà siêu thịt từ 15‑28 ngày tuổi", "stage": "15‑28 ngày tuổi", "img": "img/501ab294db311918c248767d9888d801.png"}, {"code": "S2122", "animal": "ga", "name": "Thức ăn hỗn hợp cho Gà siêu thịt từ 29‑42 ngày tuổi", "stage": "29‑42 ngày tuổi", "img": "img/c7c18ccfd0736a55885e037523a4fb36.png"}, {"code": "S2141", "animal": "ga", "name": "Thức ăn hỗn hợp cao cấp cho Gà đẻ cao sản từ 19‑50 tuần tuổi", "stage": "19‑50 tuần tuổi", "img": "img/49cd6bdb412d44ac56bb7eae36357e1f.png"}, {"code": "S2211", "animal": "ga", "name": "Thức ăn hỗn hợp cao cấp cho Gà thịt từ 1‑14 ngày tuổi", "stage": "1‑14 ngày tuổi", "img": "img/971c748652d99fce79fd782e172a6736.png"}, {"code": "S2221", "animal": "ga", "name": "Thức ăn hỗn hợp cao cấp cho Gà thịt từ 15‑28 ngày tuổi", "stage": "15‑28 ngày tuổi", "img": "img/1c8e30387fb98b9931298623d6f1c680.png"}, {"code": "S2222", "animal": "ga", "name": "Thức ăn hỗn hợp cao cấp cho Gà thịt từ 29‑42 ngày tuổi", "stage": "29‑42 ngày tuổi", "img": "img/db9ca936fe75b4c6b5be218389e994b8.png"}, {"code": "S2223", "animal": "ga", "name": "Thức ăn hỗn hợp cao cấp cho Gà thịt từ 1 ngày tuổi - xuất chuồng", "stage": "1 ngày tuổi – xuất chuồng", "img": "img/dae5cde1457eba2e2d48414ed1cddafe.png"}, {"code": "S1121", "animal": "heo", "name": "Thức ăn hỗn hợp dinh dưỡng cho Heo con từ 7‑20 kg", "stage": "7‑20 kg", "img": "img/8b3f14255ea46a3f1c983056d705559d.png"}, {"code": "S1122", "animal": "heo", "name": "Thức ăn hỗn hợp dinh dưỡng cho Heo thịt cao sản từ 20‑40 kg", "stage": "20‑40 kg", "img": "img/5cb92f3ea11880469e8390c4e348cb25.png"}, {"code": "S1132", "animal": "heo", "name": "Thức ăn hỗn hợp cao cấp cho Heo nái mang thai", "stage": "Nái mang thai", "img": "img/bba9bf0863604b1b3713062e9bbb4ca8.png"}, {"code": "S1141", "animal": "heo", "name": "Thức ăn hỗn hợp cao cấp cho Heo nái nuôi con", "stage": "Nái nuôi con", "img": "img/668f6bc563396fc8d3df40e4d44aedc8.png"}, {"code": "S1221", "animal": "heo", "name": "Thức ăn hỗn hợp cho Heo thịt cao sản từ 15‑25 kg", "stage": "15‑25 kg", "img": "img/c91925089f0054639f6825611c3c3f64.png"}, {"code": "S1222", "animal": "heo", "name": "Thức ăn hỗn hợp cho Heo thịt cao sản từ 25‑50 kg", "stage": "25‑50 kg", "img": "img/4d31c99753a23f5ffe1c27ad715ea20c.png"}, {"code": "S3111", "animal": "vit", "name": "Thức ăn hỗn hợp cho Vịt, ngan siêu thịt từ 1‑21 ngày tuổi", "stage": "1‑21 ngày tuổi", "img": "img/9d02f2e3e5f622a7d28785211c4c7694.png"}, {"code": "S3121", "animal": "vit", "name": "Thức ăn hỗn hợp cho Vịt, ngan siêu thịt từ 22‑42 ngày tuổi", "stage": "22‑42 ngày tuổi", "img": "img/1ef9107d37c54ade88bbfbf930ac5da8.png"}, {"code": "S3141", "animal": "vit", "name": "Thức ăn hỗn hợp cho Vịt, ngan đẻ cao sản", "stage": "Vịt, ngan đẻ", "img": "img/194e85de7a24f9a2c93908021a93917d.png"}, {"code": "S3211", "animal": "vit", "name": "Thức ăn hỗn hợp cao cấp cho Vịt, ngan thịt từ 1‑21 ngày tuổi", "stage": "1‑21 ngày tuổi", "img": "img/904e0498e937491917ec74207b03c819.png"}, {"code": "S3221", "animal": "vit", "name": "Thức ăn hỗn hợp cao cấp cho Vịt, ngan thịt từ 22‑42 ngày tuổi", "stage": "22‑42 ngày tuổi", "img": "img/1f51d497d35ffaf88c437d2961b215f9.png"}, {"code": "S3241", "animal": "vit", "name": "Thức ăn hỗn hợp cao cấp cho Vịt, ngan đẻ", "stage": "Vịt, ngan đẻ", "img": "img/c75dfc0d0c2107b47c2c38e2825b120b.png"}, {"code": "S5121", "animal": "bo", "name": "Thức ăn hỗn hợp cho Bò siêu thịt", "stage": "Bò nuôi thịt", "img": "img/3aa908c25d2e1c4a1140f3f053c83fb4.png"}, {"code": "S5131", "animal": "bo", "name": "Thức ăn hỗn hợp cho Bò sữa", "stage": "Bò sữa", "img": "img/50e88f478dd0f26771de65370810d748.png"}, {"code": "S6121", "animal": "khac", "name": "Thức ăn hỗn hợp cho Dê siêu thịt", "stage": "Dê nuôi thịt", "img": "img/6a531de4ee0262a038f67b528e9a2caf.png"}];
+    const tab = st.tab || 'all';
+    const q = (st.q || '').trim().toLowerCase();
+    const PER = 12;
+    const found = all.filter((x) => (tab === 'all' || x.animal === tab) && (!q || x.code.toLowerCase().includes(q) || x.name.replace(/\u2011/g, "-").toLowerCase().includes(q)));
+    const pages = Math.max(1, Math.ceil(found.length / PER));
+    const page = Math.min(st.page || 1, pages);
+    const feeds = found.slice((page - 1) * PER, page * PER)
+      .map((x) => ({ ...x, animalLabel: labels[x.animal], alt: 'Bao thức ăn FarmPlus ' + x.code + ' – ' + x.name, pick: () => { try { window.localStorage.setItem('fp-feed', x.code); } catch (e) {} } }));
+    const tabs = [['all', 'Tất cả'], ['ga', 'Gà'], ['heo', 'Heo'], ['vit', 'Vịt, ngan'], ['bo', 'Bò'], ['khac', 'Dê']].map(([k, label]) => ({
+      label: label + ' (' + (k === 'all' ? all.length : all.filter((x) => x.animal === k).length) + ')', cls: 'tab' + (k === tab ? ' is-on' : ''), pressed: k === tab ? 'true' : 'false', pick: () => this.setState({ tab: k, page: 1, n: (st.n || 0) + 1 })
+    }));
+    return {
+      m, L, drawerOpen: !!this.props.drawerOpen, tabs, feeds, noFeeds: feeds.length === 0,
+      meta: found.length ? ('Hiển thị ' + ((page - 1) * PER + 1) + '–' + ((page - 1) * PER + feeds.length) + ' trong ' + found.length + ' sản phẩm' + (pages > 1 ? ' · Trang ' + page + '/' + pages : '')) : 'Không tìm thấy sản phẩm',
+      gridClass: 'feed-grid ' + ((st.n || 0) % 2 ? 'anim-b' : 'anim-a'),
+      onSearch: (e) => this.setState({ q: e && e.target ? e.target.value : '', page: 1, n: (st.n || 0) + 1 }),
+      showPager: pages > 1, prevDis: page <= 1 ? 'true' : 'false', nextDis: page >= pages ? 'true' : 'false',
+      prevPage: () => { if (page > 1) this.goPage(page - 1); }, nextPage: () => { if (page < pages) this.goPage(page + 1); },
+      pageBtns: Array.from({ length: pages }, (_, i) => ({ n: i + 1, cls: i + 1 === page ? 'is-on' : '', cur: i + 1 === page ? 'page' : 'false', go: () => this.goPage(i + 1) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>FarmPlus – Liên hệ</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./site.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="fp" style="font-family: 'Be Vietnam Pro', 'Segoe UI', system-ui, sans-serif; color: #2F3A32; background: #FFFFFF">
+<dc-import name="Header" current="contact" m="{{m}}" drawer-open="{{drawerOpen}}" hint-size="100%,1px"></dc-import>
+<main>
+<section class="pbanner" style="padding-bottom: 64px">
+  <img class="cover" src="img/1088f9eaced390d5574d492b663f391d.webp" alt="">
+  <div class="shade" aria-hidden="true"></div>
+  <div class="pbanner-in"><div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="{{L.home}}">Trang chủ</a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg><span>Liên hệ</span></nav>
+    <h1>Liên hệ FarmPlus</h1>
+    <p>Đặt hàng, hợp tác đại lý hay cần tư vấn kỹ thuật – chúng tôi luôn sẵn sàng.</p>
+  </div></div>
+</section>
+
+<div class="wrap">
+  <div class="ccards">
+    <div class="ccard2 fx"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></i><div><h3>Trụ sở</h3><p>44E Trần Đại Nghĩa, P. Phước Hậu, Vĩnh Long</p></div></div>
+    <div class="ccard2 fx"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg></i><div><h3>Hotline</h3><a href="tel:0989799429">0989 799 429</a><small>Thứ 2 – Thứ 7, giờ hành chính</small></div></div>
+    <div class="ccard2 fx"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></i><div><h3>Email</h3><a href="mailto:farmplusgroup@gmail.com">farmplusgroup@gmail.com</a><small>Phản hồi trong 1 ngày làm việc</small></div></div>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="wrap split" style="align-items: start">
+    <div class="stack fx">
+      <span class="tag">Gửi yêu cầu</span>
+      <h2 class="h2">Chúng tôi có thể giúp gì?</h2>
+      <div class="tabs" role="tablist" aria-label="Loại yêu cầu" style="margin-top: 0">
+        <sc-for list="{{types}}" as="t" hint-placeholder-count="2">
+          <button type="button" role="tab" class="{{t.cls}}" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.label}}</button>
+        </sc-for>
+      </div>
+      <div class="form-box">
+        <sc-if value="{{sent}}" hint-placeholder-val="{{ false }}"><div class="form-ok" role="status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L19 8"></path></svg>Cảm ơn bạn! FarmPlus sẽ liên hệ lại sớm.</div></sc-if>
+        <sc-if value="{{notSent}}" hint-placeholder-val="{{ true }}">
+          <form class="form" onSubmit="{{submit}}">
+            <div class="field"><label for="c-name">Họ và tên <i>*</i></label><input id="c-name" required="" autocomplete="name"></div>
+            <div class="field"><label for="c-phone">Số điện thoại <i>*</i></label><input id="c-phone" type="tel" required="" autocomplete="tel"></div>
+            <div class="field field--full"><label for="c-email">Email</label><input id="c-email" type="email" autocomplete="email"></div>
+            <sc-if value="{{isDealer}}" hint-placeholder-val="{{ false }}">
+              <div class="field"><label for="c-area">Khu vực phân phối <i>*</i></label><input id="c-area" required="" placeholder="Huyện/tỉnh"></div>
+              <div class="field"><label for="c-scale">Quy mô hiện tại</label><select id="c-scale"><option>Mới bắt đầu</option><option>Cửa hàng vật tư nông nghiệp</option><option>Đại lý cấp 1</option><option>Nhà phân phối</option></select></div>
+            </sc-if>
+            <sc-if value="{{isGeneral}}" hint-placeholder-val="{{ true }}">
+              <div class="field field--full"><label for="c-topic">Chủ đề</label><select id="c-topic"><option>Đặt hàng thức ăn chăn nuôi</option><option>Đặt hàng vật nuôi</option><option>Tư vấn kỹ thuật</option><option>Khác</option></select></div>
+            </sc-if>
+            <div class="field field--full"><label for="c-msg">Nội dung</label><textarea id="c-msg"></textarea></div>
+            <label class="check field--full"><input type="checkbox" required="">Tôi đồng ý để FarmPlus liên hệ theo thông tin đã cung cấp.</label>
+            <div class="field--full"><button type="submit" class="btn btn--solid"><span>{{submitLabel}}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button></div>
+          </form>
+        </sc-if>
+      </div>
+    </div>
+    <div class="stack fx">
+      <div class="mapbox">
+        <img class="cover" src="img/e3e304e05db09922fb5cf3b6abb78fcb.webp" alt="Bản đồ minh hoạ vị trí trụ sở FarmPlus tại Vĩnh Long">
+        <span class="map-pin2">Trụ sở FarmPlus · Vĩnh Long</span>
+        <a class="swap" href="https://www.google.com/maps/search/?api=1&amp;query=44E+Tr%E1%BA%A7n+%C4%90%E1%BA%A1i+Ngh%C4%A9a%2C+Ph%C6%B0%E1%BB%9Bc+H%E1%BA%ADu%2C+V%C4%A9nh+Long" target="_blank" rel="noopener">Mở Google Maps</a>
+      </div>
+      <div class="fac" style="grid-template-columns: 1fr">
+        <div class="fac-body" style="padding: 24px">
+          <h3 style="font-size: 18px">Nhà máy sản xuất</h3>
+          <ul class="facts"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>Lô A3, Đường số 6, KCN Hòa Bình, Xã Thủ Thừa, Tây Ninh</li></ul>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=KCN+H%C3%B2a+B%C3%ACnh+Th%E1%BB%A7+Th%E1%BB%ABa" class="link-arrow">Chỉ đường<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--mint">
+  <div class="wrap">
+    <div class="sec-head sec-head--center fx"><span class="tag">Câu hỏi thường gặp</span><h2 class="h2">Giải đáp nhanh</h2></div>
+    <div class="faq">
+      <sc-for list="{{faqs}}" as="q" hint-placeholder-count="5">
+        <div class="{{q.cls}}">
+          <button type="button" class="faq-q" aria-expanded="{{q.open}}" onClick="{{q.toggle}}">{{q.q}}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></button>
+          <sc-if value="{{q.isOpen}}" hint-placeholder-val="{{ false }}"><div class="faq-a">{{q.a}}</div></sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+</main>
+<dc-import name="Footer" m="{{m}}" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"m":{"editor":"boolean","default":false},"drawerOpen":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":3070}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const m = !!this.props.m;
+    const f = (n) => ({Main:'index.html',About:'gioi-thieu.html',Products:'san-pham.html',ProductDetail:'san-pham-chi-tiet.html',Feed:'thuc-an.html',FeedDetail:'thuc-an-chi-tiet.html',News:'tin-tuc.html',NewsDetail:'tin-tuc-chi-tiet.html',Careers:'tuyen-dung.html',CareerDetail:'tuyen-dung-chi-tiet.html',Contact:'lien-he.html',Privacy:'chinh-sach-bao-mat.html',Terms:'dieu-khoan-su-dung.html'})[n];
+    const L = { home: './', about: f('About'), products: f('Products'), product: f('ProductDetail'), feed: f('Feed'), feedItem: f('FeedDetail'), news: f('News'), article: f('NewsDetail'), careers: f('Careers'), job: f('CareerDetail'), contact: f('Contact') };
+    const type = st.type || 'general';
+    const open = st.open == null ? 0 : st.open;
+    const data = [
+      ['Làm thế nào để trở thành đại lý phân phối của FarmPlus?', 'Chọn “Hợp tác đại lý” ở biểu mẫu phía trên hoặc gọi 0989 799 429. Bộ phận kinh doanh sẽ liên hệ để trao đổi về khu vực, chính sách và hỗ trợ dành cho đại lý.'],
+      ['FarmPlus có giao thức ăn tận trại không?', 'Có. FarmPlus có xe bồn chuyên dụng giao thức ăn đến trang trại. Phạm vi và điều kiện giao hàng phụ thuộc sản lượng và khu vực – vui lòng liên hệ để được báo cụ thể.'],
+      ['Tôi có được kỹ sư tư vấn kỹ thuật không?', 'Khách hàng và đại lý của FarmPlus được kỹ sư dinh dưỡng – thú y tư vấn khẩu phần, phòng bệnh và quản lý đàn, kể cả hỗ trợ tận trại.'],
+      ['Làm sao kiểm tra thông tin một bao thức ăn FarmPlus?', 'Mỗi bao ghi rõ mã sản phẩm, số công bố TCCS, số lô/ngày sản xuất, hạn sử dụng và nơi sản xuất. Bạn có thể gọi hotline để đối chiếu khi cần.'],
+      ['Bao lâu thì FarmPlus phản hồi yêu cầu?', 'Yêu cầu gửi qua website được xử lý trong giờ hành chính từ Thứ 2 đến Thứ 7. Trường hợp gấp, vui lòng gọi trực tiếp hotline.']
+    ];
+    return {
+      m, L, drawerOpen: !!this.props.drawerOpen,
+      types: [['general', 'Liên hệ chung'], ['dealer', 'Hợp tác đại lý']].map(([k, label]) => ({ label, cls: 'tab' + (k === type ? ' is-on' : ''), on: k === type ? 'true' : 'false', pick: () => this.setState({ type: k, sent: false }) })),
+      isDealer: type === 'dealer', isGeneral: type === 'general',
+      submitLabel: type === 'dealer' ? 'Gửi đăng ký đại lý' : 'Gửi liên hệ',
+      sent: !!st.sent, notSent: !st.sent,
+      submit: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sent: true }); },
+      faqs: data.map(([q, a], i) => ({ q, a, isOpen: i === open, open: i === open ? 'true' : 'false', cls: 'faq-item' + (i === open ? ' is-open' : ''), toggle: () => this.setState({ open: i === open ? -1 : i }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

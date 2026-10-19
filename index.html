@@ -1,16 +1,372 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FarmPlus – Bản thiết kế website mới (UX/UI preview)</title><meta name="robots" content="noindex,nofollow"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&display=swap" rel="stylesheet"><style>
-:root{--g:#17703A;--gd:#0F4F2A;--bg:#F2F7F0;--tx:#13261A;--mu:#55665A}
-*{box-sizing:border-box}body{margin:0;font-family:'Be Vietnam Pro',system-ui,sans-serif;background:var(--bg);color:var(--tx)}
-header{background:var(--gd);color:#fff;padding:56px 16px 48px}
-.w{max-width:1120px;margin:0 auto;padding:0 16px}
-.k{font-size:13px;font-weight:700;letter-spacing:3px;color:#9BD46A}
-h1{margin:10px 0 12px;font-size:clamp(30px,5vw,48px);line-height:1.1;font-weight:800}
-header p{margin:0;max-width:680px;color:#CFE6C4;line-height:1.6}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;padding:32px 0 24px}
-.card{display:flex;flex-direction:column;gap:6px;background:#fff;border-radius:16px;padding:20px;text-decoration:none;color:inherit;border:1px solid #DCE8D7;transition:transform .15s,box-shadow .15s}
-.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(15,79,42,.12)}
-.n{font-size:13px;font-weight:800;color:var(--g)}.t{font-size:20px;font-weight:800;color:var(--gd)}.d{font-size:14px;color:var(--mu);line-height:1.5;flex:1}.go{font-size:14px;font-weight:700;color:var(--g);margin-top:6px}
-.note{font-size:14px;color:var(--mu);line-height:1.7;padding-bottom:48px}
-</style></head><body><header><div class="w"><div class="k">FARMPLUS · UX/UI PREVIEW</div><h1>Bản thiết kế website mới</h1><p>Mỗi trang gồm bản Desktop (1440px) và Mobile (390px) đặt cạnh nhau. Bấm “Play” trên từng khung để xem tương tác. Trang có thể mất vài giây để tải.</p></div></header>
-<main class="w"><div class="grid"><a class="card" href="./trang-chu.html"><span class="n">01</span><span class="t">Trang chủ</span><span class="d">Hero, sản phẩm nổi bật, chuỗi Feed – Farm – Food, tin tức</span><span class="go">Xem trang →</span></a><a class="card" href="./gioi-thieu.html"><span class="n">02</span><span class="t">Giới thiệu</span><span class="d">Câu chuyện, năng lực, nhà máy, đối tác</span><span class="go">Xem trang →</span></a><a class="card" href="./san-pham.html"><span class="n">03</span><span class="t">Sản phẩm</span><span class="d">Danh mục & chi tiết sản phẩm chăn nuôi</span><span class="go">Xem trang →</span></a><a class="card" href="./thuc-an.html"><span class="n">04</span><span class="t">Thức ăn chăn nuôi</span><span class="d">23 mã thức ăn, lọc theo vật nuôi, trang chi tiết & báo giá</span><span class="go">Xem trang →</span></a><a class="card" href="./tin-tuc.html"><span class="n">05</span><span class="t">Tin tức</span><span class="d">Danh sách & bài viết chi tiết, nút chia sẻ Facebook/Zalo</span><span class="go">Xem trang →</span></a><a class="card" href="./tuyen-dung.html"><span class="n">06</span><span class="t">Tuyển dụng</span><span class="d">Vị trí tuyển dụng & form ứng tuyển</span><span class="go">Xem trang →</span></a><a class="card" href="./lien-he.html"><span class="n">07</span><span class="t">Liên hệ</span><span class="d">Thông tin liên hệ, bản đồ, form báo giá</span><span class="go">Xem trang →</span></a><a class="card" href="./chinh-sach.html"><span class="n">08</span><span class="t">Chính sách & Điều khoản</span><span class="d">Bảo mật, điều khoản sử dụng</span><span class="go">Xem trang →</span></a><a class="card" href="./quan-tri.html"><span class="n">09</span><span class="t">Quản trị (Admin)</span><span class="d">Đăng nhập, sản phẩm, bài viết, tuyển dụng, SEO, cài đặt — file nặng, tải ~30 giây</span><span class="go">Xem trang →</span></a></div>
-<p class="note">Đây là bản thiết kế để góp ý giao diện, chưa phải website chính thức. Nội dung, giá và hình ảnh có thể thay đổi khi triển khai. Góp ý vui lòng gửi kèm tên trang và vị trí (Desktop/Mobile).</p></main></body></html>
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FarmPlus – Thức ăn chăn nuôi & chuỗi Feed – Farm – Food</title>
+<meta name="description" content="FarmPlus – thức ăn chăn nuôi, trang trại và thực phẩm sạch. Chuỗi Feed – Farm – Food khép kín tại Đồng bằng sông Cửu Long.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/ec4ac5435c34ce62b5fec2d83397e33e.png">
+<meta property="og:image" content="https://juliolayme.github.io/farmplus-ux-preview/img/ec4ac5435c34ce62b5fec2d83397e33e.png">
+<style>html{scroll-behavior:smooth}body{margin:0;background:#fff}</style>
+
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./site.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="fp" style="font-family: 'Be Vietnam Pro', 'Segoe UI', system-ui, sans-serif; color: #2F3A32; background: #FFFFFF">
+<dc-import name="Header" current="home" m="{{m}}" drawer-open="{{drawerOpen}}" hint-size="100%,1px"></dc-import>
+
+<main>
+<!-- HERO SLIDER -->
+<section class="{{heroClass}}" aria-roledescription="carousel" aria-label="Giới thiệu FarmPlus">
+  <div class="{{slideCls0}}" aria-hidden="{{slideHidden0}}">
+    <img class="cover" src="img/1088f9eaced390d5574d492b663f391d.webp" alt="Toàn cảnh trang trại chăn nuôi FarmPlus">
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="hero-txt"><div class="wrap">
+      <span class="hero-eyebrow">FarmPlus</span>
+      <h1>Nâng tầm<br>chăn nuôi Việt Nam</h1>
+      <p class="hero-sub">Chuỗi chăn nuôi khép kín từ thức ăn, trang trại đến thực phẩm sạch – đồng hành cùng người chăn nuôi Đồng bằng sông Cửu Long.</p>
+      <div class="hero-ctas">
+        <a href="{{L.products}}" class="btn btn--solid"><span>Khám phá sản phẩm</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+        <a href="{{L.contact}}" class="btn btn--ghost"><span>Liên hệ hợp tác</span></a>
+      </div>
+    </div></div>
+  </div>
+  <div class="{{slideCls1}}" aria-hidden="{{slideHidden1}}">
+    <img class="cover" src="img/f82ceba05e05414f2d8890511aa18dbd.webp" alt="Thức ăn chăn nuôi dạng viên FarmPlus">
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="hero-txt"><div class="wrap">
+      <span class="hero-eyebrow">Feed</span>
+      <h2 class="hero-h">Thức ăn chăn nuôi chất lượng, sản xuất tại nhà máy đạt chuẩn</h2>
+      <p class="hero-sub">Thức ăn hỗn hợp dạng viên cho gà, heo, vịt, bò, dê – công bố theo tiêu chuẩn cơ sở.</p>
+      <div class="hero-ctas"><a href="{{L.feed}}" class="btn btn--solid"><span>Xem thức ăn chăn nuôi</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+    </div></div>
+  </div>
+  <div class="{{slideCls2}}" aria-hidden="{{slideHidden2}}">
+    <img class="contain" src="img/f11ac74c9cac8f2408f022299f6d3f6b.webp" alt="Xe bồn chở thức ăn chăn nuôi FarmPlus">
+    <div class="hero-txt"><div class="wrap">
+      <span class="hero-eyebrow">Giao tận trại</span>
+      <h2 class="hero-h">Tối ưu sản xuất, nâng cao giá trị</h2>
+      <p class="hero-sub">Đội xe bồn chuyên dụng đưa thức ăn FarmPlus đến tận trang trại, kèm kỹ sư hỗ trợ kỹ thuật.</p>
+      <div class="hero-ctas"><a href="{{L.contact}}" class="btn btn--solid"><span>Liên hệ hợp tác</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+    </div></div>
+  </div>
+  <div class="hero-ctrl">
+    <button type="button" class="hctl" aria-label="Slide trước" onClick="{{prevSlide}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"></path></svg></button>
+    <div class="dots">
+      <sc-for list="{{dots}}" as="d" hint-placeholder-count="3">
+        <button type="button" class="dot" aria-label="{{d.label}}" aria-current="{{d.cur}}" onClick="{{d.go}}"><span></span></button>
+      </sc-for>
+    </div>
+    <button type="button" class="hctl" aria-label="Slide tiếp theo" onClick="{{nextSlide}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg></button>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" aria-label="FarmPlus qua những con số">
+  <div class="wrap">
+    <div class="stats-row" ref="{{statsRef}}">
+      <sc-for list="{{stats}}" as="s" hint-placeholder-count="4">
+        <div class="stat">
+          <span class="stat-num">{{s.display}}<sc-if value="{{s.hasSuffix}}" hint-placeholder-val="{{ true }}"><sup>+</sup></sc-if></span>
+          <span class="stat-lbl">{{s.label}}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec">
+  <div class="wrap">
+    <div class="split" style="align-items: end; margin-bottom: 40px">
+      <div class="stack fx">
+        <span class="tag">Về FarmPlus</span>
+        <h2 class="h2">Từ thức ăn đến bàn ăn</h2>
+      </div>
+      <div class="stack fx">
+        <p class="lead">Mỗi bao thức ăn, mỗi đàn vật nuôi và mỗi sản phẩm đến tay người tiêu dùng đều đi qua cùng một chuỗi kiểm soát. FarmPlus làm chủ công thức thức ăn (sản xuất tại nhà máy đạt chuẩn), vận hành hệ thống trang trại và cung ứng thực phẩm sạch – để người chăn nuôi yên tâm về đầu vào, người tiêu dùng yên tâm về chất lượng.</p>
+        <div><a href="{{L.about}}" class="btn btn--solid"><span>Xem thêm</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+      </div>
+    </div>
+    <dc-import name="Chain" hint-size="100%,520px"></dc-import>
+  </div>
+</section>
+
+<!-- CHAIN -->
+<section class="sec sec--mint chain" aria-labelledby="chain-h">
+  <div class="wrap">
+    <div class="sec-head sec-head--center fx">
+      <span class="tag">Mô hình chuỗi khép kín</span>
+      <h2 class="h2" id="chain-h">Feed – Farm – Food</h2>
+      <p class="lead">Ba mắt xích do FarmPlus trực tiếp vận hành, kiểm soát chất lượng ở từng khâu.</p>
+    </div>
+    <div class="chain-track" aria-hidden="true">
+      <svg class="chain-svg" viewBox="0 0 1200 64" preserveAspectRatio="none"><path class="chain-path-bg" d="M200 32 C330 6 470 58 600 32 S870 6 1000 32" vector-effect="non-scaling-stroke"></path><path class="chain-path" pathLength="1" d="M200 32 C330 6 470 58 600 32 S870 6 1000 32" vector-effect="non-scaling-stroke"></path></svg>
+      <div class="chain-nodes"><div class="chain-node"><b>01</b></div><div class="chain-node"><b>02</b></div><div class="chain-node"><b>03</b></div></div>
+    </div>
+    <div class="chain-cards">
+      <a href="{{L.feed}}" class="ccard fx">
+        <div class="ccard-img"><img class="cover" src="img/f68ca807521acd061c6138049049dcd4.webp" alt="Nhà máy thức ăn chăn nuôi" loading="lazy"><span class="ccard-key">FEED</span></div>
+        <div class="ccard-body"><h3>Thức ăn chăn nuôi</h3><p>Công thức dinh dưỡng riêng cho từng loài, từng giai đoạn; sản xuất tại nhà máy đạt chuẩn.</p><span class="link-arrow">Xem chi tiết<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></div>
+      </a>
+      <a href="{{L.products}}" class="ccard fx">
+        <div class="ccard-img"><img class="cover" src="img/771928d847fb031f0810f3bd617315b2.webp" alt="Heo và gà trong trại chăn nuôi" loading="lazy"><span class="ccard-key">FARM</span></div>
+        <div class="ccard-body"><h3>Trang trại</h3><p>Hệ thống 30 trang trại gà, vịt, heo áp dụng an toàn sinh học và giám sát kỹ thuật thường xuyên.</p><span class="link-arrow">Xem chi tiết<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></div>
+      </a>
+      <a href="{{L.products}}" class="ccard fx">
+        <div class="ccard-img"><img class="cover" src="img/3917d5c505c253a17074f5eda46da1bc.webp" alt="Thịt heo và thịt gà tươi" loading="lazy"><span class="ccard-key">FOOD</span></div>
+        <div class="ccard-body"><h3>Thực phẩm sạch</h3><p>Sản phẩm đạt chuẩn đến tay người tiêu dùng cùng thông tin truy xuất nguồn gốc rõ ràng.</p><span class="link-arrow">Xem chi tiết<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LIVESTOCK -->
+<section class="sec" aria-labelledby="prod-h">
+  <div class="wrap">
+    <div class="sec-head sec-head--row fx">
+      <div style="display: flex; flex-direction: column; gap: 14px; max-width: 640px">
+        <span class="tag">Sản phẩm vật nuôi</span>
+        <h2 class="h2" id="prod-h">Vật nuôi khỏe – thực phẩm an tâm</h2>
+      </div>
+      <div class="arrows">
+        <button type="button" class="arrow" aria-label="Sản phẩm trước" onClick="{{prev}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg></button>
+        <button type="button" class="arrow" aria-label="Sản phẩm tiếp theo" onClick="{{next}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+      </div>
+    </div>
+  </div>
+  <div class="{{trackClass}}" ref="{{trackRef}}" onPointerDown="{{dragStart}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragEnd}}" onPointerCancel="{{dragEnd}}" onPointerLeave="{{dragEnd}}">
+    <sc-for list="{{livestock}}" as="l" hint-placeholder-count="4">
+      <a href="{{L.product}}" class="pcard" draggable="false" onClick="{{l.pick}}">
+        <div class="pcard-img"><img class="contain cut" src="{{l.img}}" alt="{{l.name}}" loading="lazy" draggable="false"></div>
+        <h3>{{l.name}}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></h3>
+        <p>{{l.desc}}</p>
+      </a>
+    </sc-for>
+  </div>
+  <div class="wrap"><p class="drag-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12h12M16 8l4 4-4 4M4 8v8"></path></svg>Kéo hoặc vuốt ngang để xem thêm</p></div>
+</section>
+
+<!-- FEED -->
+<section class="sec sec--mint" aria-labelledby="feed-h">
+  <div class="wrap">
+    <div class="sec-head fx">
+      <span class="tag">Thức ăn chăn nuôi</span>
+      <h2 class="h2" id="feed-h">Dinh dưỡng đúng cho từng giai đoạn</h2>
+      <p class="lead">Thức ăn hỗn hợp dạng viên, bao 25 kg, công bố theo tiêu chuẩn cơ sở. Liên hệ để nhận báo giá theo khu vực và sản lượng.</p>
+    </div>
+    <div class="tabs" role="group" aria-label="Lọc theo vật nuôi">
+      <sc-for list="{{tabs}}" as="t" hint-placeholder-count="7">
+        <button type="button" class="{{t.cls}}" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}">{{t.label}}</button>
+      </sc-for>
+    </div>
+    <div class="{{gridClass}}">
+      <sc-for list="{{feeds}}" as="p" hint-placeholder-count="7">
+        <a href="{{L.feedItem}}" class="fcard" onClick="{{p.pick}}">
+          <div class="fcard-img fcard-img--bag">
+            <sc-if value="{{p.isNew}}" hint-placeholder-val="{{ false }}"><span class="new">Mới</span></sc-if>
+            <img class="contain bagimg" src="{{p.img}}" alt="{{p.alt}}" loading="lazy">
+          </div>
+          <div class="fcard-body">
+            <span class="code">Mã {{p.code}}</span>
+            <h3>{{p.name}}</h3>
+            <span class="stage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>{{p.stage}}</span>
+            <span class="btn btn--outline btn--sm"><span>Nhận báo giá</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+          </div>
+        </a>
+      </sc-for>
+      <sc-if value="{{noFeeds}}" hint-placeholder-val="{{ false }}"><div class="empty"><b>Sản phẩm đang được cập nhật</b>Vui lòng liên hệ FarmPlus để được tư vấn thức ăn phù hợp.</div></sc-if>
+    </div>
+    <div class="feed-foot"><a href="{{L.feed}}" class="btn btn--solid"><span>Xem toàn bộ 23 sản phẩm</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="sec" aria-labelledby="why-h">
+  <div class="wrap">
+    <div class="sec-head sec-head--center fx">
+      <span class="tag">Vì sao chọn FarmPlus</span>
+      <h2 class="h2" id="why-h">Chất lượng kiểm soát được, đồng hành tận nơi</h2>
+    </div>
+    <div class="why-grid">
+      <div class="wcard fx">
+        <span class="wicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="draw" pathLength="1" d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6l-8-3Z"></path><path class="draw" pathLength="1" d="m8.5 12 2.5 2.5 4.5-5"></path></svg></span>
+        <h3>Quy trình kiểm soát chất lượng</h3>
+        <p>Kiểm soát từ nguyên liệu đầu vào, quá trình sản xuất đến thành phẩm trước khi xuất xưởng.</p>
+      </div>
+      <div class="wcard fx">
+        <span class="wicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"></path><path d="M8 8v8M11 8v8M14 8v8M17 8v8" stroke-width="1.2"></path><path class="scan" d="M5 12h14" stroke="#4F9A2A" stroke-width="2"></path></svg></span>
+        <h3>Truy xuất nguồn gốc</h3>
+        <p>Mỗi bao thức ăn ghi số lô, ngày sản xuất và nơi sản xuất – dễ dàng truy xuất khi cần.</p>
+      </div>
+      <div class="wcard fx">
+        <span class="wicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="spin-slow" cx="12" cy="12" r="9" stroke-dasharray="2 2.6"></circle><circle cx="12" cy="12" r="5.5"></circle><path class="draw" pathLength="1" d="m9.6 12 1.7 1.7 3.2-3.4"></path></svg></span>
+        <h3>Đạt tiêu chuẩn cơ sở (TCCS)</h3>
+        <p>Mỗi sản phẩm thức ăn chăn nuôi đều có số công bố TCCS riêng in trên bao bì.</p>
+      </div>
+      <div class="wcard fx">
+        <span class="wicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="bob"><path d="M2 7h11v9H2zM13 10h4l3 3v3h-7"></path><circle cx="6" cy="17.5" r="1.8"></circle><circle cx="16.5" cy="17.5" r="1.8"></circle></g></svg></span>
+        <h3>Hỗ trợ kỹ thuật tận trại</h3>
+        <p>Kỹ sư FarmPlus đến tận trại tư vấn dinh dưỡng, phòng bệnh và quản lý đàn.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="sec sec--mint" aria-labelledby="news-h">
+  <div class="wrap">
+    <div class="sec-head sec-head--row fx">
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <span class="tag">Tin tức &amp; kiến thức</span>
+        <h2 class="h2" id="news-h">Cập nhật từ FarmPlus</h2>
+      </div>
+      <a href="{{L.news}}" class="link-arrow">Xem tất cả tin tức<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+    <div class="news-grid">
+      <a href="{{L.article}}" class="news-big fx" onClick="{{art.hb}}">
+        <div class="nimg"><img class="cover" src="img/045348de9d1e2fd982bec7c24af9992b.webp" alt="Đại diện FarmPlus trao học bổng cho hai sinh viên trên sân khấu Trường Đại học Cần Thơ" loading="lazy" style="object-position: 60% 30%"></div>
+        <span class="ndate">Tin công ty <span>· 10/10/2026</span></span>
+        <h3><span class="ntitle">FarmPlus trao học bổng cho sinh viên ngành Chăn nuôi – Thú y Trường Đại học Cần Thơ</span></h3>
+        <p>Tổng trị giá 10 triệu đồng học bổng và 50 áo mưa dành cho sinh viên có hoàn cảnh khó khăn, học tập tốt.</p>
+      </a>
+      <div class="news-list">
+        <a href="{{L.article}}" class="news-sm fx" onClick="{{art.um}}">
+          <div class="nimg"><img class="cover" src="img/f020357b9ca0bc279700ba73c9481584.webp" alt="Gà con tụ quanh máng ăn, máng uống dưới đèn sưởi trong chuồng úm" loading="lazy" style="object-position: 50% 60%"></div>
+          <div><span class="ndate">Kỹ thuật chăn nuôi <span>· 18/09/2026</span></span><h3><span class="ntitle">Kỹ thuật úm gà con 1–14 ngày tuổi</span></h3></div>
+        </a>
+        <a href="{{L.article}}" class="news-sm fx" onClick="{{art.nai}}">
+          <div class="nimg"><img class="cover" src="img/48182d2872697c4b9a6fe318abc0d029.webp" alt="Heo nái nằm cho đàn heo con mới sinh bú trong ô chuồng lót rơm" loading="lazy" style="object-position: 42% 62%"></div>
+          <div><span class="ndate">Kỹ thuật chăn nuôi <span>· 07/08/2026</span></span><h3><span class="ntitle">Chăm sóc heo nái mang thai và nuôi con</span></h3></div>
+        </a>
+        <a href="{{L.article}}" class="news-sm fx" onClick="{{art.vit}}">
+          <div class="nimg"><img class="cover" src="img/f63ceb8f67e68c068cba3930dc28b919.webp" alt="Người nông dân lùa đàn vịt trên ruộng ngập nước" loading="lazy" style="object-position: 50% 68%"></div>
+          <div><span class="ndate">Kỹ thuật chăn nuôi <span>· 23/07/2026</span></span><h3><span class="ntitle">Nuôi vịt thịt siêu thịt 1–42 ngày</span></h3></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section aria-labelledby="cta-h" style="padding-block: clamp(64px, 8vw, 112px)">
+  <div class="wrap">
+    <div class="cta fx">
+      <svg class="cta-pat" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M8 92C8 40 40 8 92 8c0 52-32 84-84 84Z"></path><path d="M8 92 70 30M30 70h22M44 56h20M30 70V50M44 56V38"></path></svg>
+      <div>
+        <span class="tag tag--light" style="position: relative">Hợp tác &amp; đại lý</span>
+        <h2 id="cta-h" style="margin-top: 16px">Trở thành đối tác phân phối của FarmPlus</h2>
+        <p>Nguồn hàng ổn định, chính sách đại lý minh bạch và đội ngũ kỹ thuật hỗ trợ tận nơi. Cùng hơn 30 đối tác trên khắp ĐBSCL nâng tầm chăn nuôi Việt Nam.</p>
+      </div>
+      <div class="cta-acts">
+        <a href="{{L.contact}}" class="btn btn--white"><span>Đăng ký làm đại lý</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+        <a href="tel:0989799429" class="btn btn--ghost"><span>Gọi 0989 799 429</span></a>
+        <span class="note">Phản hồi trong giờ hành chính, Thứ 2 – Thứ 7</span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<dc-import name="Footer" m="{{m}}" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"m":{"editor":"boolean","default":false},"drawerOpen":{"editor":"boolean","default":false},"autoplay":{"editor":"boolean","default":true},"$preview":{"width":1440,"height":8490}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    this._reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    this.startAuto();
+    if (!this._reduce && 'IntersectionObserver' in window && this.statsEl) {
+      this.setState({ countP: 0 });
+      this._io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) { this._io.disconnect(); this.runCount(); }
+      }, { threshold: 0.35 });
+      this._io.observe(this.statsEl);
+      this._safety = setTimeout(() => { if (!this._counting) this.setState({ countP: 1 }); }, 6000);
+    }
+  }
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+    clearTimeout(this._safety); clearInterval(this._auto); cancelAnimationFrame(this._raf);
+  }
+  startAuto() {
+    clearInterval(this._auto);
+    if (this._reduce || this.props.autoplay === false) return;
+    this._auto = setInterval(() => this.go(((this.state && this.state.slide) || 0) + 1, true), 6500);
+  }
+  go(i, auto) { this.setState({ slide: ((i % 3) + 3) % 3 }); if (!auto) this.startAuto(); }
+  runCount() {
+    this._counting = true;
+    const t0 = performance.now(), dur = 1800;
+    const step = (t) => {
+      const k = Math.min(1, (t - t0) / dur);
+      this.setState({ countP: 1 - Math.pow(1 - k, 3) });
+      if (k < 1) this._raf = requestAnimationFrame(step);
+    };
+    this._raf = requestAnimationFrame(step);
+  }
+  renderVals() {
+    const st = this.state || {};
+    const m = !!this.props.m;
+    const f = (n) => ({Main:'index.html',About:'gioi-thieu.html',Products:'san-pham.html',ProductDetail:'san-pham-chi-tiet.html',Feed:'thuc-an.html',FeedDetail:'thuc-an-chi-tiet.html',News:'tin-tuc.html',NewsDetail:'tin-tuc-chi-tiet.html',Careers:'tuyen-dung.html',CareerDetail:'tuyen-dung-chi-tiet.html',Contact:'lien-he.html',Privacy:'chinh-sach-bao-mat.html',Terms:'dieu-khoan-su-dung.html'})[n];
+    const L = { home: './', about: f('About'), products: f('Products'), product: f('ProductDetail'), feed: f('Feed'), feedItem: f('FeedDetail'), news: f('News'), article: f('NewsDetail'), careers: f('Careers'), job: f('CareerDetail'), contact: f('Contact') };
+    const p = st.countP == null ? 1 : st.countP;
+    const slide = st.slide || 0;
+    if (!this._refs) this._refs = { stats: (el) => { this.statsEl = el; }, track: (el) => { this.track = el; } };
+    const stats = [
+      { v: 500000, plus: true, label: 'Vật nuôi' }, { v: 30, plus: false, label: 'Trang trại' },
+      { v: 30, plus: true, label: 'Đối tác phân phối' }, { v: 1, plus: false, label: 'Nhà máy sản xuất' }
+    ].map((s) => ({ display: Math.round(s.v * p).toLocaleString('vi-VN'), hasSuffix: s.plus, label: s.label }));
+    const dots = [0, 1, 2].map((i) => ({ label: 'Chuyển tới slide ' + (i + 1), cur: i === slide ? 'true' : 'false', go: () => this.go(i) }));
+    const livestock = [
+      { slug: 'ga-trang', name: 'Gà trắng', img: 'img/8c276d6f79e53b9fc64c8ec157608bec.webp', desc: 'Gà thịt lông trắng nuôi khép kín, đàn đồng đều, tăng trọng tốt.' },
+      { slug: 'ga-mau', name: 'Gà màu', img: 'img/e3a0d09c90809423aedd45864e6c53be.webp', desc: 'Gà lông màu thịt chắc, hợp khẩu vị người tiêu dùng Việt.' },
+      { slug: 'vit-thit', name: 'Vịt thịt', img: 'img/d9c54b65f3f24e82487971084728cc76.webp', desc: 'Vịt nuôi tại vùng sông nước ĐBSCL bằng thức ăn FarmPlus.' },
+      { slug: 'heo-thit', name: 'Heo thịt', img: 'img/bbed0473b4ab619384cb77c6015dc781.webp', desc: 'Heo thịt nuôi an toàn sinh học, kiểm soát từ con giống.' }
+    ];
+    const tab = st.tab || 'all';
+    const tabs = [['all', 'Nổi bật'], ['ga', 'Gà'], ['heo', 'Heo'], ['vit', 'Vịt, ngan'], ['bo', 'Bò'], ['khac', 'Dê']].map(([k, label]) => ({
+      label, cls: 'tab' + (k === tab ? ' is-on' : ''), pressed: k === tab ? 'true' : 'false',
+      pick: () => this.setState({ tab: k, tabN: (st.tabN || 0) + 1 })
+    }));
+    const all = [{"code": "S2111", "animal": "ga", "name": "Gà siêu thịt 1‑14 ngày tuổi", "stage": "1‑14 ngày tuổi", "img": "img/96d62b15005f037c2d3c34a972629e6b.png", "isNew": false}, {"code": "S2121", "animal": "ga", "name": "Gà siêu thịt 15‑28 ngày tuổi", "stage": "15‑28 ngày tuổi", "img": "img/501ab294db311918c248767d9888d801.png", "isNew": false}, {"code": "S2122", "animal": "ga", "name": "Gà siêu thịt 29‑42 ngày tuổi", "stage": "29‑42 ngày tuổi", "img": "img/c7c18ccfd0736a55885e037523a4fb36.png", "isNew": false}, {"code": "S2141", "animal": "ga", "name": "Gà đẻ cao sản 19‑50 tuần tuổi", "stage": "19‑50 tuần tuổi", "img": "img/49cd6bdb412d44ac56bb7eae36357e1f.png", "isNew": false}, {"code": "S2211", "animal": "ga", "name": "Gà thịt 1‑14 ngày tuổi", "stage": "1‑14 ngày tuổi", "img": "img/971c748652d99fce79fd782e172a6736.png", "isNew": false}, {"code": "S2221", "animal": "ga", "name": "Gà thịt 15‑28 ngày tuổi", "stage": "15‑28 ngày tuổi", "img": "img/1c8e30387fb98b9931298623d6f1c680.png", "isNew": false}, {"code": "S2222", "animal": "ga", "name": "Gà thịt 29‑42 ngày tuổi", "stage": "29‑42 ngày tuổi", "img": "img/db9ca936fe75b4c6b5be218389e994b8.png", "isNew": false}, {"code": "S2223", "animal": "ga", "name": "Gà thịt 1 ngày tuổi – xuất chuồng", "stage": "1 ngày tuổi – xuất chuồng", "img": "img/dae5cde1457eba2e2d48414ed1cddafe.png", "isNew": false}, {"code": "S1121", "animal": "heo", "name": "Heo con 7‑20 kg", "stage": "7‑20 kg", "img": "img/8b3f14255ea46a3f1c983056d705559d.png", "isNew": false}, {"code": "S1122", "animal": "heo", "name": "Heo thịt cao sản 20‑40 kg", "stage": "20‑40 kg", "img": "img/5cb92f3ea11880469e8390c4e348cb25.png", "isNew": false}, {"code": "S1132", "animal": "heo", "name": "Heo nái mang thai", "stage": "Nái mang thai", "img": "img/bba9bf0863604b1b3713062e9bbb4ca8.png", "isNew": false}, {"code": "S1141", "animal": "heo", "name": "Heo nái nuôi con", "stage": "Nái nuôi con", "img": "img/668f6bc563396fc8d3df40e4d44aedc8.png", "isNew": false}, {"code": "S1221", "animal": "heo", "name": "Heo thịt cao sản 15‑25 kg", "stage": "15‑25 kg", "img": "img/c91925089f0054639f6825611c3c3f64.png", "isNew": false}, {"code": "S1222", "animal": "heo", "name": "Heo thịt cao sản 25‑50 kg", "stage": "25‑50 kg", "img": "img/4d31c99753a23f5ffe1c27ad715ea20c.png", "isNew": false}, {"code": "S3111", "animal": "vit", "name": "Vịt, ngan siêu thịt 1‑21 ngày tuổi", "stage": "1‑21 ngày tuổi", "img": "img/9d02f2e3e5f622a7d28785211c4c7694.png", "isNew": false}, {"code": "S3121", "animal": "vit", "name": "Vịt, ngan siêu thịt 22‑42 ngày tuổi", "stage": "22‑42 ngày tuổi", "img": "img/1ef9107d37c54ade88bbfbf930ac5da8.png", "isNew": false}, {"code": "S3141", "animal": "vit", "name": "Vịt, ngan đẻ cao sản", "stage": "Vịt, ngan đẻ", "img": "img/194e85de7a24f9a2c93908021a93917d.png", "isNew": false}, {"code": "S3211", "animal": "vit", "name": "Vịt, ngan thịt 1‑21 ngày tuổi", "stage": "1‑21 ngày tuổi", "img": "img/904e0498e937491917ec74207b03c819.png", "isNew": false}, {"code": "S3221", "animal": "vit", "name": "Vịt, ngan thịt 22‑42 ngày tuổi", "stage": "22‑42 ngày tuổi", "img": "img/1f51d497d35ffaf88c437d2961b215f9.png", "isNew": false}, {"code": "S3241", "animal": "vit", "name": "Vịt, ngan đẻ", "stage": "Vịt, ngan đẻ", "img": "img/c75dfc0d0c2107b47c2c38e2825b120b.png", "isNew": false}, {"code": "S5121", "animal": "bo", "name": "Bò siêu thịt", "stage": "Bò nuôi thịt", "img": "img/3aa908c25d2e1c4a1140f3f053c83fb4.png", "isNew": false}, {"code": "S5131", "animal": "bo", "name": "Bò sữa", "stage": "Bò sữa", "img": "img/50e88f478dd0f26771de65370810d748.png", "isNew": false}, {"code": "S6121", "animal": "khac", "name": "Dê siêu thịt", "stage": "Dê nuôi thịt", "img": "img/6a531de4ee0262a038f67b528e9a2caf.png", "isNew": false}];
+    const FEAT = ['S2211', 'S2221', 'S2141', 'S2111', 'S1121', 'S1132', 'S3111', 'S5131'];
+    const feeds = (tab === 'all' ? FEAT.map((c) => all.find((x) => x.code === c)) : all.filter((x) => x.animal === tab)).slice(0, 8).map((x) => ({ ...x, alt: 'Bao thức ăn FarmPlus ' + x.code + ' – ' + x.name }));
+    const scrollBy = (d) => { if (this.track) this.track.scrollBy({ left: d * Math.min(404, this.track.clientWidth * 0.85), behavior: 'smooth' }); };
+    const sv = (k, v) => { try { window.localStorage.setItem(k, v); } catch (e) {} };
+    const sc = (i) => 'slide' + (i === 2 ? ' slide--light' : '') + (i === slide ? ' is-active' : '');
+    return {
+      m, L, drawerOpen: !!this.props.drawerOpen,
+      heroClass: 'hero' + (slide === 2 ? ' on-light' : ''),
+      slideCls0: sc(0), slideCls1: sc(1), slideCls2: sc(2),
+      slideHidden0: slide === 0 ? 'false' : 'true', slideHidden1: slide === 1 ? 'false' : 'true', slideHidden2: slide === 2 ? 'false' : 'true',
+      dots, prevSlide: () => this.go(slide - 1), nextSlide: () => this.go(slide + 1),
+      statsRef: this._refs.stats, trackRef: this._refs.track,
+      stats, tabs,
+      livestock: livestock.map((x) => ({ ...x, pick: () => sv('fp-product', x.slug) })),
+      feeds: feeds.map((x) => ({ ...x, pick: () => sv('fp-feed', x.code) })),
+      art: { hb: () => sv('fp-article', 'hoc-bong-ctu'), um: () => sv('fp-article', 'um-ga-con'), vit: () => sv('fp-article', 'vit-sieu-thit'), nai: () => sv('fp-article', 'heo-nai'), asb: () => sv('fp-article', 'an-toan-sinh-hoc') }, noFeeds: feeds.length === 0,
+      gridClass: 'feed-grid ' + ((st.tabN || 0) % 2 ? 'anim-b' : 'anim-a'),
+      trackClass: 'track' + (st.dragging ? ' is-drag' : ''),
+      prev: () => scrollBy(-1), next: () => scrollBy(1),
+      dragStart: (e) => { if (e.pointerType !== 'mouse' || !this.track) return; this._drag = { x: e.clientX, s: this.track.scrollLeft, moved: false }; },
+      dragMove: (e) => {
+        if (!this._drag || !this.track) return;
+        const dx = e.clientX - this._drag.x;
+        if (!this._drag.moved && Math.abs(dx) > 5) { this._drag.moved = true; this.setState({ dragging: true }); try { this.track.setPointerCapture(e.pointerId); } catch (err) {} }
+        if (this._drag.moved) this.track.scrollLeft = this._drag.s - dx;
+      },
+      dragEnd: () => { if (this._drag && this._drag.moved) this.setState({ dragging: false }); this._drag = null; }
+    };
+  }
+}
+</script>
+</body>
+</html>

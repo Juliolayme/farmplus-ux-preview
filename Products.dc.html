@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>FarmPlus – Sản phẩm vật nuôi</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./site.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="fp" style="font-family: 'Be Vietnam Pro', 'Segoe UI', system-ui, sans-serif; color: #2F3A32; background: #FFFFFF">
+<dc-import name="Header" current="products" m="{{m}}" drawer-open="{{drawerOpen}}" hint-size="100%,1px"></dc-import>
+<main>
+<section class="pbanner">
+  <img class="cover" src="img/771928d847fb031f0810f3bd617315b2.webp" alt="Heo và gà trong trại FarmPlus">
+  <div class="shade" aria-hidden="true"></div>
+  <div class="pbanner-in"><div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="{{L.home}}">Trang chủ</a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg><span>Sản phẩm</span></nav>
+    <h1>Sản phẩm vật nuôi</h1>
+    <p>Gà, vịt, heo nuôi bằng thức ăn FarmPlus, trong trang trại FarmPlus, theo cùng một quy trình.</p>
+  </div></div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head fx"><span class="tag">Danh mục</span><h2 class="h2">4 dòng vật nuôi chủ lực</h2><p class="lead">Vật nuôi được nuôi tại hệ thống trang trại FarmPlus bằng thức ăn FarmPlus. Liên hệ để biết lịch xuất chuồng và giá theo từng thời điểm.</p></div>
+    <div class="plist">
+      <sc-for list="{{items}}" as="p" hint-placeholder-count="4">
+        <a href="{{L.product}}" class="pitem fx" onClick="{{p.pick}}">
+          <div class="pitem-img zoom"><img class="cover cut" src="{{p.img}}" alt="{{p.name}}" loading="lazy"></div>
+          <div class="pitem-body">
+            <h3>{{p.name}}</h3>
+            <div class="chips"><sc-for list="{{p.chips}}" as="c" hint-placeholder-count="2"><span>{{c}}</span></sc-for></div>
+            <p>{{p.desc}}</p>
+            <span class="btn btn--outline btn--sm"><span>Xem chi tiết</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--mint">
+  <div class="wrap">
+    <div class="sec-head sec-head--center fx"><span class="tag">Quy trình chung</span><h2 class="h2">Từ con giống đến xuất chuồng</h2></div>
+    <div class="steps">
+      <div class="step fx"><h3>Chọn giống</h3><p>Con giống khỏe, rõ nguồn gốc, kiểm tra trước khi nhập trại.</p></div>
+      <div class="step fx"><h3>Úm &amp; khởi động</h3><p>Kiểm soát nhiệt độ, mật độ; dùng thức ăn khởi động FarmPlus.</p></div>
+      <div class="step fx"><h3>Nuôi thịt</h3><p>Khẩu phần theo giai đoạn, theo dõi tăng trọng định kỳ.</p></div>
+      <div class="step fx"><h3>Kiểm soát sức khỏe</h3><p>Lịch phòng bệnh theo hướng dẫn thú y, ghi chép nhật ký đàn.</p></div>
+      <div class="step fx"><h3>Xuất chuồng</h3><p>Kiểm tra trước xuất bán, vận chuyển theo quy trình.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-block: clamp(64px, 8vw, 112px)">
+  <div class="wrap">
+    <div class="cta fx">
+      <div>
+        <span class="tag tag--light">Đặt hàng</span>
+        <h2 style="margin-top: 16px">Cần nguồn vật nuôi ổn định?</h2>
+        <p>Cho FarmPlus biết loại vật nuôi, số lượng và thời điểm – chúng tôi sẽ liên hệ trong giờ hành chính.</p>
+      </div>
+      <div class="cta-acts">
+        <a href="{{L.contact}}" class="btn btn--white"><span>Liên hệ đặt hàng</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+        <a href="tel:0989799429" class="btn btn--ghost"><span>Gọi 0989 799 429</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<dc-import name="Footer" m="{{m}}" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"m":{"editor":"boolean","default":false},"drawerOpen":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":3510}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const m = !!this.props.m;
+    const f = (n) => ({Main:'index.html',About:'gioi-thieu.html',Products:'san-pham.html',ProductDetail:'san-pham-chi-tiet.html',Feed:'thuc-an.html',FeedDetail:'thuc-an-chi-tiet.html',News:'tin-tuc.html',NewsDetail:'tin-tuc-chi-tiet.html',Careers:'tuyen-dung.html',CareerDetail:'tuyen-dung-chi-tiet.html',Contact:'lien-he.html',Privacy:'chinh-sach-bao-mat.html',Terms:'dieu-khoan-su-dung.html'})[n];
+    const L = { home: './', about: f('About'), products: f('Products'), product: f('ProductDetail'), feed: f('Feed'), feedItem: f('FeedDetail'), news: f('News'), article: f('NewsDetail'), careers: f('Careers'), job: f('CareerDetail'), contact: f('Contact') };
+    const items = [
+      { slug: 'ga-trang', name: 'Gà trắng', img: 'img/8c276d6f79e53b9fc64c8ec157608bec.webp', chips: ['Gà thịt lông trắng', 'Nuôi khép kín'], desc: 'Gà thịt lông trắng nuôi khép kín, dùng thức ăn FarmPlus từ giai đoạn úm, đàn đồng đều và có nhật ký nuôi theo lô.' },
+      { slug: 'ga-mau', name: 'Gà màu', img: 'img/e3a0d09c90809423aedd45864e6c53be.webp', chips: ['Gà thịt lông màu', 'Thịt chắc, thơm'], desc: 'Gà lông màu nuôi với thời gian dài hơn gà trắng, thịt chắc, thơm, phù hợp khẩu vị người tiêu dùng Việt.' },
+      { slug: 'vit-thit', name: 'Vịt thịt', img: 'img/d9c54b65f3f24e82487971084728cc76.webp', chips: ['Vịt siêu thịt', 'Nuôi nhốt có kiểm soát'], desc: 'Vịt siêu thịt nuôi tại ĐBSCL với thức ăn S3111 (1 – 21 ngày) và S3121 cho giai đoạn tăng trưởng.' },
+      { slug: 'heo-thit', name: 'Heo thịt', img: 'img/bbed0473b4ab619384cb77c6015dc781.webp', chips: ['Gia súc', 'An toàn sinh học'], desc: 'Heo thịt nuôi theo quy trình an toàn sinh học, thức ăn S1121 cho heo con và S1222 cho heo thịt 25 – 50 kg.' }
+    ].map((x) => ({ ...x, pick: () => { try { window.localStorage.setItem('fp-product', x.slug); } catch (e) {} } }));
+    return { m, L, drawerOpen: !!this.props.drawerOpen, items };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>FarmPlus – Nút chia sẻ</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./site.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="fp" style="font-family: 'Be Vietnam Pro', 'Segoe UI', system-ui, sans-serif; color: #2F3A32; background: transparent; overflow: visible">
+
+<sc-if value="{{isRail}}" hint-placeholder-val="{{ false }}">
+  <div class="sh-rail" role="group" aria-label="Chia sẻ">
+    <span class="sh-rail-label">Chia sẻ</span>
+    <a class="sh-ic sh-fb" href="{{fbUrl}}" target="_blank" rel="noopener" aria-label="Chia sẻ Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V6.8c0-.8.5-1 .9-1H17V2.3L14.2 2.3C11 2.3 10.3 4.6 10.3 6.1v2.4H8V12h2.3v10H14V12h2.7l.4-3.5H14Z"></path></svg></a>
+    <button type="button" class="sh-ic sh-zalo" aria-label="Chia sẻ Zalo" onClick="{{shareZalo}}">Zalo</button>
+    <button type="button" class="sh-ic" aria-label="Sao chép liên kết" onClick="{{copy}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"></path></svg></button>
+  </div>
+</sc-if>
+
+<sc-if value="{{isRow}}" hint-placeholder-val="{{ true }}">
+  <div class="sh-row" role="group" aria-label="Chia sẻ">
+    <span class="sh-row-label">Chia sẻ:</span>
+    <a class="sh-pill sh-fb" href="{{fbUrl}}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V6.8c0-.8.5-1 .9-1H17V2.3L14.2 2.3C11 2.3 10.3 4.6 10.3 6.1v2.4H8V12h2.3v10H14V12h2.7l.4-3.5H14Z"></path></svg>Chia sẻ Facebook</a>
+    <button type="button" class="sh-pill sh-zalo" onClick="{{shareZalo}}"><b>Zalo</b>Chia sẻ Zalo</button>
+    <button type="button" class="sh-pill" onClick="{{copy}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"></path></svg>Sao chép liên kết</button>
+  </div>
+</sc-if>
+
+<sc-if value="{{isCta}}" hint-placeholder-val="{{ false }}">
+  <div class="sh-cta">
+    <div>
+      <h3>{{ctaTitle}}</h3>
+      <p>{{ctaText}}</p>
+    </div>
+    <div class="sh-cta-btns">
+      <a class="sh-big sh-fb" href="{{fbUrl}}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V6.8c0-.8.5-1 .9-1H17V2.3L14.2 2.3C11 2.3 10.3 4.6 10.3 6.1v2.4H8V12h2.3v10H14V12h2.7l.4-3.5H14Z"></path></svg>Chia sẻ Facebook</a>
+      <button type="button" class="sh-big sh-zalo" onClick="{{shareZalo}}"><b>Zalo</b>Chia sẻ Zalo</button>
+    </div>
+    <button type="button" class="sh-copy-link" onClick="{{copy}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"></path></svg>Sao chép liên kết</button>
+  </div>
+</sc-if>
+
+<sc-if value="{{isFriends}}" hint-placeholder-val="{{ false }}">
+  <div class="sh-friends">
+    <button type="button" class="btn btn--accent" aria-expanded="{{openStr}}" onClick="{{toggle}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"></path></svg><span>Chia sẻ cho bạn bè</span></button>
+    <sc-if value="{{open}}" hint-placeholder-val="{{ false }}">
+      <div class="sh-pop" role="group" aria-label="Chọn cách chia sẻ">
+        <a class="sh-pill sh-fb" href="{{fbUrl}}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V6.8c0-.8.5-1 .9-1H17V2.3L14.2 2.3C11 2.3 10.3 4.6 10.3 6.1v2.4H8V12h2.3v10H14V12h2.7l.4-3.5H14Z"></path></svg>Facebook</a>
+        <button type="button" class="sh-pill sh-zalo" onClick="{{shareZalo}}"><b>Zalo</b>Zalo</button>
+        <button type="button" class="sh-pill" onClick="{{copy}}">Sao chép liên kết</button>
+      </div>
+    </sc-if>
+  </div>
+</sc-if>
+
+<sc-if value="{{isBar}}" hint-placeholder-val="{{ false }}">
+  <div class="{{barCls}}" role="group" aria-label="Chia sẻ">
+    <button type="button" class="sh-bar-btn sh-bar-main" onClick="{{native}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13"></path></svg>Chia sẻ</button>
+    <a class="sh-bar-btn sh-fb" href="{{fbUrl}}" target="_blank" rel="noopener" aria-label="Chia sẻ Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V6.8c0-.8.5-1 .9-1H17V2.3L14.2 2.3C11 2.3 10.3 4.6 10.3 6.1v2.4H8V12h2.3v10H14V12h2.7l.4-3.5H14Z"></path></svg></a>
+    <button type="button" class="sh-bar-btn sh-zalo" aria-label="Chia sẻ Zalo" onClick="{{shareZalo}}">Zalo</button>
+    <button type="button" class="sh-bar-btn" aria-label="Sao chép liên kết" onClick="{{copy}}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"></path></svg></button>
+  </div>
+</sc-if>
+
+<sc-if value="{{toast}}" hint-placeholder-val="{{ false }}"><div class="sh-toast" role="status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L19 8"></path></svg>{{toastText}}</div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["row","rail","cta","friends","bar"],"default":"row"},"url":{"editor":null},"title":{"editor":null},"$preview":{"width":720,"height":120}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    if (this.props.variant === 'bar') {
+      this._onScroll = () => {
+        const on = (window.scrollY || 0) > 480;
+        if (on !== !!(this.state && this.state.barOn)) this.setState({ barOn: on });
+      };
+      window.addEventListener('scroll', this._onScroll, { passive: true });
+      this._onScroll();
+    }
+  }
+  componentWillUnmount() { if (this._onScroll) window.removeEventListener('scroll', this._onScroll); clearTimeout(this._t); }
+  flash(text) {
+    clearTimeout(this._t);
+    this.setState({ toast: true, toastText: text });
+    this._t = setTimeout(() => this.setState({ toast: false }), 2200);
+  }
+  doCopy(url, text) {
+    const done = () => this.flash(text);
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(url).then(done, done); return; }
+    } catch (e) {}
+    done();
+  }
+  renderVals() {
+    const st = this.state || {};
+    const v = this.props.variant || 'row';
+    const url = this.props.url || 'https://farmplusgroup.com';
+    const title = this.props.title || 'FarmPlus – Nâng tầm chăn nuôi Việt Nam';
+    const isJob = v === 'friends';
+    return {
+      isRail: v === 'rail', isRow: v === 'row', isCta: v === 'cta', isFriends: isJob, isBar: v === 'bar',
+      fbUrl: 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url),
+      ctaTitle: 'Bài viết hữu ích? Chia sẻ cho bà con chăn nuôi cùng đọc',
+      ctaText: 'Một lượt chia sẻ có thể giúp thêm một trang trại nuôi tốt hơn.',
+      barCls: 'sh-bar' + (st.barOn ? ' is-on' : ''),
+      open: !!st.open, openStr: st.open ? 'true' : 'false',
+      toggle: () => this.setState({ open: !st.open }),
+      toast: !!st.toast, toastText: st.toastText || '',
+      copy: () => this.doCopy(url, 'Đã sao chép'),
+      shareZalo: () => {
+        try { if (navigator.share) { navigator.share({ title, url }).catch(() => {}); return; } } catch (e) {}
+        this.doCopy(url, 'Đã sao chép – mở Zalo và dán để chia sẻ');
+      },
+      native: () => {
+        try { if (navigator.share) { navigator.share({ title, url }).catch(() => {}); return; } } catch (e) {}
+        this.doCopy(url, 'Đã sao chép');
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

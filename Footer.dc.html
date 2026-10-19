@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>FarmPlus – Footer</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./site.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="fp" style="font-family: 'Be Vietnam Pro', 'Segoe UI', system-ui, sans-serif; color: #2F3A32; background: transparent">
+<footer class="foot" id="lien-he" style="margin-top: 0">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="{{L.home}}" class="logo" aria-label="FarmPlus – trang chủ"><img src="img/ec4ac5435c34ce62b5fec2d83397e33e.png" alt="" width="56" height="56"><span><span class="logo-word">Farm<b>Plus</b></span></span></a>
+        <p class="foot-desc">Doanh nghiệp chăn nuôi gia súc, gia cầm và sản xuất thức ăn chăn nuôi, xây dựng chuỗi Feed – Farm – Food khép kín tại Đồng bằng sông Cửu Long.</p>
+        <div class="socials">
+          <a href="https://zalo.me/0989799429" class="social" aria-label="Zalo FarmPlus">Zalo</a>
+        </div>
+      </div>
+      <div>
+        <h4>Liên hệ</h4>
+        <ul class="contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg><span>44E Trần Đại Nghĩa, P. Phước Hậu, Vĩnh Long</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"></path></svg><span>Nhà máy sản xuất: Lô A3, Đường số 6, KCN Hòa Bình, Xã Thủ Thừa, Tây Ninh</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg><a href="tel:0989799429">Hotline: 0989 799 429</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg><a href="mailto:farmplusgroup@gmail.com">farmplusgroup@gmail.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Liên kết nhanh</h4>
+        <ul class="qlinks">
+          <li><a href="{{L.about}}">Giới thiệu</a></li>
+          <li><a href="{{L.products}}">Sản phẩm</a></li>
+          <li><a href="{{L.feed}}">Thức ăn chăn nuôi</a></li>
+          <li><a href="{{L.news}}">Tin tức</a></li>
+          <li><a href="{{L.careers}}">Tuyển dụng</a></li>
+          <li><a href="{{L.contact}}">Liên hệ – Hợp tác đại lý</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Nhận bản tin kỹ thuật</h4>
+        <form class="sub-form" onSubmit="{{subscribe}}">
+          <label for="fp-email">Kiến thức chăn nuôi và tin mới từ FarmPlus, mỗi tháng một lần.</label>
+          <div class="sub-row">
+            <input id="fp-email" type="email" placeholder="Email của bạn" autocomplete="email">
+            <button type="submit" class="btn btn--solid btn--sm"><span>Đăng ký</span></button>
+          </div>
+        </form>
+        <a href="{{L.contact}}" class="map" aria-label="Xem bản đồ trụ sở FarmPlus" style="display: block">
+          <img class="cover" src="img/e3e304e05db09922fb5cf3b6abb78fcb.webp" alt="" loading="lazy">
+          <span class="ph-tag" style="position: absolute; left: 12px; bottom: 12px; background: rgba(12,59,31,.88); color: #fff; padding: 6px 10px; border-radius: 999px; font-size: 12px">Xem bản đồ trụ sở</span>
+        </a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Công ty TNHH FarmPlus. Bảo lưu mọi quyền.</span>
+      <span style="display: flex; gap: 20px; flex-wrap: wrap"><a href="{{L.privacy}}">Chính sách bảo mật</a><a href="{{L.terms}}">Điều khoản sử dụng</a></span>
+    </div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"m":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":520}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const m = !!this.props.m;
+    const f = (n) => ({Main:'index.html',About:'gioi-thieu.html',Products:'san-pham.html',ProductDetail:'san-pham-chi-tiet.html',Feed:'thuc-an.html',FeedDetail:'thuc-an-chi-tiet.html',News:'tin-tuc.html',NewsDetail:'tin-tuc-chi-tiet.html',Careers:'tuyen-dung.html',CareerDetail:'tuyen-dung-chi-tiet.html',Contact:'lien-he.html',Privacy:'chinh-sach-bao-mat.html',Terms:'dieu-khoan-su-dung.html'})[n];
+    return {
+      L: { home: './', about: f('About'), products: f('Products'), feed: f('Feed'), news: f('News'), careers: f('Careers'), contact: f('Contact'), privacy: f('Privacy'), terms: f('Terms') },
+      subscribe: (e) => { if (e && e.preventDefault) e.preventDefault(); }
+    };
+  }
+}
+</script>
+</body>
+</html>
