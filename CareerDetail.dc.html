@@ -132,7 +132,7 @@ class Component extends DCLogic {
     const go = (s) => { try { window.localStorage.setItem('fp-job', s); } catch (e) {} this.setState({ slug: s, sent: false }); try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {} };
     return {
       m, L, drawerOpen: !!this.props.drawerOpen, j: FP_JOBS[slug],
-      shareUrl: 'https://farmplusgroup.com/tuyen-dung/' + slug, shareTitle: 'FarmPlus tuyển dụng: ' + FP_JOBS[slug].title,
+      shareUrl: 'https://juliolayme.github.io/farmplus-ux-preview/viec-' + slug + '.html', shareTitle: 'FarmPlus tuyển dụng: ' + FP_JOBS[slug].title,
       others: FP_J_ORDER.filter((s) => s !== slug).map((s) => ({ title: FP_JOBS[s].title, pick: () => go(s) })),
       sent: !!st.sent, notSent: !st.sent,
       submit: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sent: true }); }

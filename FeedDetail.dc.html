@@ -148,7 +148,7 @@ class Component extends DCLogic {
     const go = (c) => { try { window.localStorage.setItem('fp-feed', c); } catch (e) {} this.setState({ code: c, g: 0, sent: false }); try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {} };
     return {
       m, L, drawerOpen: !!this.props.drawerOpen, p,
-      shareUrl: 'https://farmplusgroup.com/thuc-an/' + code.toLowerCase(), shareTitle: code + ' – ' + p.full,
+      shareUrl: 'https://juliolayme.github.io/farmplus-ux-preview/thuc-an-' + code.toLowerCase() + '.html', shareTitle: code + ' – ' + p.full,
       productLabel: code + ' – ' + p.name,
       mainImg: imgs[g].src, mainAlt: imgs[g].alt, mainCls: imgs[g].fit,
       thumbs: imgs.map((x, i) => ({ ...x, cls: 'thumb' + (i === g ? ' is-on' : ''), on: i === g ? 'true' : 'false', pick: () => this.setState({ g: i }) })),

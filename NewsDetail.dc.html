@@ -429,7 +429,7 @@ class Component extends DCLogic {
       title: FP_ARTICLES[s].title, img: FP_ARTICLES[s].img, pos: FP_ARTICLES[s].pos,
       pick: () => { fpStore('fp-article', s); this.setState({ slug: s }); try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {} }
     }));
-    return { m, L, drawerOpen: !!this.props.drawerOpen, shareUrl: 'https://farmplusgroup.com/tin-tuc/' + slug, a: cur.a, blocks: cur.blocks, others };
+    return { m, L, drawerOpen: !!this.props.drawerOpen, shareUrl: 'https://juliolayme.github.io/farmplus-ux-preview/tin-' + slug + '.html', a: cur.a, blocks: cur.blocks, others };
   }
 }
 </script>

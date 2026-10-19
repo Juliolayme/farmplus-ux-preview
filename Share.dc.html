@@ -99,7 +99,7 @@ class Component extends DCLogic {
   renderVals() {
     const st = this.state || {};
     const v = this.props.variant || 'row';
-    const url = this.props.url || 'https://farmplusgroup.com';
+    const url = this.props.url || String(location.href).split('#')[0];
     const title = this.props.title || 'FarmPlus – Nâng tầm chăn nuôi Việt Nam';
     const isJob = v === 'friends';
     return {

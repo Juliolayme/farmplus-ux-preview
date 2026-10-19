@@ -189,7 +189,7 @@ class Component extends DCLogic {
     const go = (s) => { try { window.localStorage.setItem('fp-product', s); } catch (e) {} this.setState({ slug: s, g: 0, tab: 'desc', sent: false }); try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {} };
     return {
       m, L, drawerOpen: !!this.props.drawerOpen, p,
-      shareUrl: 'https://farmplusgroup.com/san-pham/' + slug, shareTitle: p.name + ' – FarmPlus',
+      shareUrl: 'https://juliolayme.github.io/farmplus-ux-preview/san-pham-chi-tiet.html?id=' + slug, shareTitle: p.name + ' – FarmPlus',
       mainImg: imgs[g].src, mainAlt: imgs[g].alt, mainCls: imgs[g].fit,
       thumbs: imgs.map((x, i) => ({ ...x, cls: 'thumb' + (i === g ? ' is-on' : ''), on: i === g ? 'true' : 'false', pick: () => this.setState({ g: i }) })),
       tabs: [['desc', 'Mô tả'], ['process', 'Quy trình nuôi'], ['std', 'Tiêu chuẩn']].map(([k, label]) => ({ label, on: k === tab ? 'true' : 'false', pick: () => this.setState({ tab: k }) })),
